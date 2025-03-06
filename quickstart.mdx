@@ -39,48 +39,31 @@ Learn how to bootstrap your risk assessment and analyze your system's hazards!
   You can see an example of the generated artifacts in this screenshot:
   <img src="/images/generated-artifacts.png" />
 </Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
+<Accordion icon="rocket" title="Trigger automatically for manually entered hazards">
+  After entering hazards manually, you can trigger analysis by clicking the "Infer Field" button under Actions 
+  after checking the box next to the hazards to analyze.
+  <img src="/images/infer-fields.png" />
+  You can see an example of the inferred hazard analysis in this screenshot:
+  <img src="/images/inferred-hazard-analysis.png" />
+  This automatically gets saved to the project and can be viewed on the Settings page.
+  <img src="/images/settings-page.png" />
 </Accordion>
 
 </AccordionGroup>
 
-## Update your docs
+## Identify Control Measures and Safety Functions
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+<AccordionGroup>
 
-<CardGroup>
+<Accordion icon="message-bot" title="Enter and associate with hazards">
+  You can enter and associate control measures with hazards in the Control Measures view of the Compliance Dashboard.
+  <img src="/images/control-measure-form.png" />
+  You can also generate a Control Measure in the Table View, which will also retrieve standard and best practice references relevant to both the hazard and class of control.
+  <img src="/images/generate-control-measure.png" />
+</Accordion>
+<Accordion icon="rocket" title="Aggregate control measures into safety functions">
+  Many control measures may be similar, so should be associated with the same safety function, which can be associated with specific architecture.
+  <img src="/images/safety-function-form.png" />
+</Accordion>
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
-
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
-
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
-
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
-
-</CardGroup>
+</AccordionGroup>
