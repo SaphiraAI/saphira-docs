@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Saphira",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/images/logo_name cropped.png",
+    "light": "/images/logo_name cropped.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
@@ -18,34 +18,28 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:contact@saphira.ai"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://prod.saphira.ai"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "introduction"
     },
     {
       "name": "Community",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "https://join.slack.com/t/saphirausers/shared_invite/zt-31l6gfaww-dsu4Z1pcPyd6oM9VRA852Q"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://saphira.ai/blog"
     }
   ],
   "navigation": [
@@ -56,36 +50,11 @@
         "quickstart",
         "development"
       ]
-    },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
-      ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/saphira_ai",
+    "github": "https://github.com/SaphiraAI",
+    "linkedin": "https://www.linkedin.com/company/saphira-ai"
   }
 }

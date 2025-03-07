@@ -7,60 +7,55 @@ description: 'Once a risk assessment has been seeded, you can review it together
 
 Learn how to analyze existing assessments that have been performed!
 
-### Find Similar Measures
+### Find Similar Measures and Filter Graph View
 
 <AccordionGroup>
   <Accordion icon="github" title="Find Similar Measures">
     Use the Find Similar action on Control Measures to identify other controls across the project which seem similar and should be consolidated.
     <img src="/images/find-similar-measures.png" />
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Enter Hazards Manually">
-    Click the "Add Hazard" button on the top right of the Hazards view of the Dashboard tab.
-    <img src="/images/enter-hazards-button.png" />
-    Enter the hazard details, including the hazard description and the risk
-    assessment and click "Create Hazard".
-    <img src="/images/enter-hazards-modal.png" />
-    You're all set!
-    If you'd like to customize the risk graph being applied or the fields being required, you can do so in the Settings tab under "Fields".
-    <img src="/images/field-settings.png" />
+  <Accordion icon="rectangle-terminal" title="Filter Graph View">
+    In the "Trace Graph" tab, you can filter the hierarchy by properties during review, such as high Residual Risk.
+    <img src="/images/filter-graph-view.png" />
   </Accordion>
 </AccordionGroup>
 
-### Generate risk assessment
+### Add and generate validation information
 
 <AccordionGroup>
 
-<Accordion icon="message-bot" title="Generate upon project creation">
-  When creating a new project, specify tasks for which to infer hazards based on the configured standards.
-  <img src="/images/generate-hazards.png" />
-  You can see an example of the generated artifacts in this screenshot:
-  <img src="/images/generated-artifacts.png" />
-</Accordion>
-<Accordion icon="rocket" title="Trigger automatically for manually entered hazards">
-  After entering hazards manually, you can trigger analysis by clicking the "Infer Field" button under Actions 
-  after checking the box next to the hazards to analyze.
-  <img src="/images/infer-fields.png" />
-  You can see an example of the inferred hazard analysis in this screenshot:
-  <img src="/images/inferred-hazard-analysis.png" />
-  This automatically gets saved to the project and can be viewed on the Settings page.
-  <img src="/images/settings-page.png" />
-</Accordion>
-
+  <Accordion icon="message-bot" title="Add validation information">
+    You can add validation information to a Control Measure or Safety Function by clicking the "Create Test Plan" button on the "Tests" tab from Table or Trace Graph views.
+    <img src="/images/add-validation.png" />
+    You can add any test or verification test here, and can also append programmatically.
+    <img src="/images/create-test-plan.png" />
+    For example, see this Verification & Validation Checklist that was generated for a sample requirement in a demo project using the "Generate Validation & Verification" button under Actions:
+    <img src="/images/sample-test-plan.png" />
+    Furthermore, you can add or view automatically identified traceability from these control measures, requirements, and safety functions into arbitrary links, such as from your codebase, 
+    design document store, task management system, or even the open Internet.
+    <img src="/images/traceability.png" />
+    Next up, you can associate particular safety function architecture using SISTEMA VDMA libraries in the Safety Functions view.
+    <img src="/images/safety-function-architecture.png" />
+    You can also add arbitrary additional fields to any item to store inline, such as Residual Risk notes:
+    <img src="/images/residual-risk-notes.png" />
+    Any fields that were generated automatically are highlighted in yellow until acked by a reviewer.
+    <img src="/images/unacked-field.png" />
+    Finally, when you're done with all necessary review, you can mark the assessment as "Validated" to indicate that the assessment is ready to be used in a safety case, which will lock it to future edits.
+    <img src="/images/validate-assessment.png" />
+  </Accordion>
 </AccordionGroup>
 
-## Identify Control Measures and Safety Functions
+## Export Notified Body Reports
 
 <AccordionGroup>
 
-<Accordion icon="message-bot" title="Enter and associate with hazards">
-  You can enter and associate control measures with hazards in the Control Measures view of the Compliance Dashboard.
-  <img src="/images/control-measure-form.png" />
-  You can also generate a Control Measure in the Table View, which will also retrieve standard and best practice references relevant to both the hazard and class of control.
-  <img src="/images/generate-control-measure.png" />
-</Accordion>
-<Accordion icon="rocket" title="Aggregate control measures into safety functions">
-  Many control measures may be similar, so should be associated with the same safety function, which can be associated with specific architecture.
-  <img src="/images/safety-function-form.png" />
+<Accordion icon="message-bot" title="Export Notified Body Reports">
+  You can export a Notified Body Report from the "Export Requirements" dropdown in Table View.
+  <img src="/images/export-notified-body-report.png" />
+  For example, this is the default export format:
+  <img src="/images/notified-body-report.png" />
+  And here's the expected output by Pilz:
+  <img src="/images/pilz-report.png" />
 </Accordion>
 
 </AccordionGroup>
