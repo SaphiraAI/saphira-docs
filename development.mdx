@@ -1,98 +1,61 @@
 ---
-title: 'Development'
-description: 'Learn how to preview changes locally'
+title: 'Review Assessment'
+description: 'Once a risk assessment has been seeded, you can review it together with your team to identify and prioritize risks.'
 ---
 
-<Info>
-  **Prerequisite** You should have installed Node.js (version 18.10.0 or
-  higher).
-</Info>
+## Analyze project
 
-Step 1. Install Mintlify on your OS:
+Learn how to analyze existing assessments that have been performed!
 
-<CodeGroup>
-
-```bash npm
-npm i -g mintlify
-```
-
-```bash yarn
-yarn global add mintlify
-```
-
-</CodeGroup>
-
-Step 2. Go to the docs are located (where you can find `mint.json`) and run the following command:
-
-```bash
-mintlify dev
-```
-
-The documentation website is now available at `http://localhost:3000`.
-
-### Custom Ports
-
-Mintlify uses port 3000 by default. You can use the `--port` flag to customize the port Mintlify runs on. For example, use this command to run in port 3333:
-
-```bash
-mintlify dev --port 3333
-```
-
-You will see an error like this if you try to run Mintlify in a port that's already taken:
-
-```md
-Error: listen EADDRINUSE: address already in use :::3000
-```
-
-## Mintlify Versions
-
-Each CLI is linked to a specific version of Mintlify. Please update the CLI if your local website looks different than production.
-
-<CodeGroup>
-
-```bash npm
-npm i -g mintlify@latest
-```
-
-```bash yarn
-yarn global upgrade mintlify
-```
-
-</CodeGroup>
-
-## Deployment
-
-<Tip>
-  Unlimited editors available under the [Startup
-  Plan](https://mintlify.com/pricing)
-</Tip>
-
-You should see the following if the deploy successfully went through:
-
-<Frame>
-  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-## Troubleshooting
-
-Here's how to solve some common problems when working with the CLI.
+### Find Similar Measures and Filter Graph View
 
 <AccordionGroup>
-  <Accordion title="Mintlify is not loading">
-    Update to Node v18. Run `mintlify install` and try again.
+  <Accordion icon="github" title="Find Similar Measures">
+    Use the Find Similar action on Control Measures to identify other controls across the project which seem similar and should be consolidated.
+    <img src="/images/find-similar-measures.png" />
   </Accordion>
-  <Accordion title="No such file or directory on Windows">
-Go to the `C:/Users/Username/.mintlify/` directory and remove the `mint`
-folder. Then Open the Git Bash in this location and run `git clone
-https://github.com/mintlify/mint.git`.
-
-Repeat step 3.
-
-  </Accordion>
-  <Accordion title="Getting an unknown error">
-    Try navigating to the root of your device and delete the ~/.mintlify folder.
-    Then run `mintlify dev` again.
+  <Accordion icon="rectangle-terminal" title="Filter Graph View">
+    In the "Trace Graph" tab, you can filter the hierarchy by properties during review, such as high Residual Risk.
+    <img src="/images/filter-graph-view.png" />
   </Accordion>
 </AccordionGroup>
 
-Curious about what changed in a CLI version? [Check out the CLI changelog.](/changelog/command-line)
+### Add and generate validation information
+
+<AccordionGroup>
+
+  <Accordion icon="message-bot" title="Add validation information">
+    You can add validation information to a Control Measure or Safety Function by clicking the "Create Test Plan" button on the "Tests" tab from Table or Trace Graph views.
+    <img src="/images/add-validation.png" />
+    You can add any test or verification test here, and can also append programmatically.
+    <img src="/images/create-test-plan.png" />
+    For example, see this Verification & Validation Checklist that was generated for a sample requirement in a demo project using the "Generate Validation & Verification" button under Actions:
+    <img src="/images/sample-test-plan.png" />
+    Furthermore, you can add or view automatically identified traceability from these control measures, requirements, and safety functions into arbitrary links, such as from your codebase, 
+    design document store, task management system, or even the open Internet.
+    <img src="/images/traceability.png" />
+    Next up, you can associate particular safety function architecture using SISTEMA VDMA libraries in the Safety Functions view.
+    <img src="/images/safety-function-architecture.png" />
+    You can also add arbitrary additional fields to any item to store inline, such as Residual Risk notes:
+    <img src="/images/residual-risk-notes.png" />
+    Any fields that were generated automatically are highlighted in yellow until acked by a reviewer.
+    <img src="/images/unacked-field.png" />
+    Finally, when you're done with all necessary review, you can mark the assessment as "Validated" to indicate that the assessment is ready to be used in a safety case, which will lock it to future edits.
+    <img src="/images/validate-assessment.png" />
+  </Accordion>
+</AccordionGroup>
+
+## Export Notified Body Reports
+
+<AccordionGroup>
+
+<Accordion icon="message-bot" title="Export Notified Body Reports">
+  You can export a Notified Body Report from the "Export Requirements" dropdown in Table View.
+  <img src="/images/export-notified-body-report.png" />
+  For example, this is the default export format:
+  <img src="/images/notified-body-report.png" />
+  And here's the expected output by Pilz:
+  <img src="/images/pilz-report.png" />
+</Accordion>
+
+</AccordionGroup>

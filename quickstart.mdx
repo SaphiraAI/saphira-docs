@@ -1,86 +1,69 @@
 ---
-title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+title: 'Create and Analyze Hazards'
+description: 'Start building a comprehensive risk assessment for your system in under 5 minutes!'
 ---
 
-## Setup your development
+## Set up your project
 
-Learn how to update your docs locally and and deploy them to the public.
+Learn how to bootstrap your risk assessment and analyze your system's hazards!
 
-### Edit and preview
+### Import or enter
 
 <AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
+  <Accordion icon="github" title="Import Existing Risk Assessment from Excel">
+    Hover over the "Import" dropdown on the top right of the screen and click "Spreadsheet".
+    <img src="/images/import-dropdown.png" />
+    The spreadsheet should have the following columns:
+    <img src="/images/spreadsheet-columns.png" />
+    Click "Import" and you're all set!
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
+  <Accordion icon="rectangle-terminal" title="Enter Hazards Manually">
+    Click the "Add Hazard" button on the top right of the Hazards view of the Dashboard tab.
+    <img src="/images/enter-hazards-button.png" />
+    Enter the hazard details, including the hazard description and the risk
+    assessment and click "Create Hazard".
+    <img src="/images/enter-hazards-modal.png" />
+    You're all set!
+    If you'd like to customize the risk graph being applied or the fields being required, you can do so in the Settings tab under "Fields".
+    <img src="/images/field-settings.png" />
   </Accordion>
 </AccordionGroup>
 
-### Deploy your changes
+### Generate risk assessment
 
 <AccordionGroup>
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
+<Accordion icon="message-bot" title="Generate upon project creation">
+  When creating a new project, specify tasks for which to infer hazards based on the configured standards.
+  <img src="/images/generate-hazards.png" />
+  You can see an example of the generated artifacts in this screenshot:
+  <img src="/images/generated-artifacts.png" />
 </Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
+<Accordion icon="rocket" title="Trigger automatically for manually entered hazards">
+  After entering hazards manually, you can trigger analysis by clicking the "Infer Field" button under Actions 
+  after checking the box next to the hazards to analyze.
+  <img src="/images/infer-fields.png" />
+  You can see an example of the inferred hazard analysis in this screenshot:
+  <img src="/images/inferred-hazard-analysis.png" />
+  This automatically gets saved to the project and can be viewed on the Settings page.
+  <img src="/images/settings-page.png" />
 </Accordion>
 
 </AccordionGroup>
 
-## Update your docs
+## Identify Control Measures and Safety Functions
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+<AccordionGroup>
 
-<CardGroup>
+<Accordion icon="message-bot" title="Enter and associate with hazards">
+  You can enter and associate control measures with hazards in the Control Measures view of the Compliance Dashboard.
+  <img src="/images/control-measure-form.png" />
+  You can also generate a Control Measure in the Table View, which will also retrieve standard and best practice references relevant to both the hazard and class of control.
+  <img src="/images/generate-control-measure.png" />
+</Accordion>
+<Accordion icon="rocket" title="Aggregate control measures into safety functions">
+  Many control measures may be similar, so should be associated with the same safety function, which can be associated with specific architecture.
+  <img src="/images/safety-function-form.png" />
+</Accordion>
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
-
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
-
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
-
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
-
-</CardGroup>
+</AccordionGroup>
