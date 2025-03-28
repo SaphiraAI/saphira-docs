@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "Saphira",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373"
+    "primary": "#6b46c1",
+    "light": "#553c9a",
+    "dark": "#6b46c1"
   },
   "favicon": "/favicon.png",
   "navigation": {
