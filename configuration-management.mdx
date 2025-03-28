@@ -1,0 +1,112 @@
+---
+title: 'Configuration Management'
+description: 'Manage and review requirements in Saphira!'
+---
+
+## Manage and Review Requirements
+
+Learn how to manage and review requirements!
+
+### Create and Review Requirements
+
+<AccordionGroup>
+  <Accordion icon="github" title="Create Requirements">
+    Functionality:
+      - Within the "Requirements" tab, click the "Add Requirement" button or the + sign
+
+      - This brings up a new modal or a new line, which allows you to easily add a new requirement to the system by specifying its Key, Value, Logical Operator, Unit, Parents, and Reason
+
+    Guidelines:
+      - Make sure to provide a unique key to avoid confusion.
+
+      - Take note that the system doesn't check for duplicate keys, so ensure uniqueness.
+
+      - Remember the value linked to your keys is accessible via our API.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Update Requirements">
+    Functionality:
+      - Within the "Table View" tab, you can easily update a requirement by clicking anywhere on the row where it is contained in our database. This will allow you to edit the requirement inline. Clicking on the pencil icon will allow you to edit more metadata about a requirement.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="View Requirement History">
+    Functionality:
+      - See how a requirement has changed over time and its different versions, along with who made the change.
+
+    Guidelines:
+      - Within the "Table View" tab, clicking on a requirement key brings up the Preview tab of the Edit Sidebar, where there's an "Open History" button that opens a modal with this information.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="View Requirement Graph">
+    Functionality:
+      - Visualize connections between requirements by drawing an easy-to-understand graph.
+
+    Guidelines:
+      - This feature is designed for simple parent-child relationships, but requires these to be stored as requirements within the system for this graph to be built.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Integrate with Gitlab">
+    Functionality:
+      By linking Saphira with GitLab, all owners of requirements and GitLab files containing requirement referencing will be immediately notified upon changes within either system.
+
+    Guidelines:
+      Please navigate to Saphira settings and from GitLab, select your GitLab API token. Please fill these in on the Saphira settings page.
+
+      A typical GitLab project URL looks like this: https://gitlab.com/group/subgroup/project_name. The project path in this case would be group/subgroup/project_name.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Export Requirements">
+    Functionality:
+      - Create a PDF or CSV report containing the entire requirements database for easy reference.
+
+    Guidelines:
+      - Ideal for keeping a snapshot of your current requirements setup.
+
+      - Be aware that the exported report may become large for extensive datasets.
+
+      - Please see the last 30 seconds in this video for how a project can be exported: https://youtu.be/NhqFnJ8izwU
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Import Requirements">
+    Functionality:
+      - Effortlessly import requirements data from an Excel spreadsheet into the system.
+
+    Guidelines:
+      - Ensure your spreadsheet is in the supported formats (xlsx, xls).
+
+      - The system may not handle incorrectly formatted spreadsheets, so double-check your file.
+
+      - Currently, to import a CSV, please make sure your CSV has these column names:
+
+      - 'reference number'
+      - 'ID'
+      - 'value'
+      - 'logical operator'
+      - 'unit'
+      - 'requirement type'
+      - 'requirement description'
+      - Please see a video of the spreadsheet import process: https://youtu.be/NhqFnJ8izwU
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Access Parameters in Simulations and Tests">
+    Setup:
+    - pip install saphira
+
+    Access:
+    - import saphira
+
+    - saphira.get_param(project, param_name)
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Link Simulations and Tests to Items">
+    Functionality:
+    - This leverages our open-source Python library to pull parameterized information from requirements into your Python scripts for simulation and validation to allow for centralized control of these just based on requirements.
+
+    - We will soon support capture of test pass rate and allow visualization on the homepage dashboard of coverage rate of all requirements per subsystem.
+
+    - Linked Simulations Demo: https://youtu.be/3tti1a123us
+
+    Guidelines:
+    - Furthermore, we’re working on an active deployment environment that will re-run parameterized validations or simulations when they change. We can eventually link this to a PLC Management System, QMS, or Test Bench setup.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Generate Test Plans & Verification & Validation Checklists">
+    Functionality:
+    - Our service has an AI integration, allowing for outputting a generic test plan, but we’ve been configuring modes to generate Python tests, LabView automations, and more.
+
+    - This is rapidly being enhanced given stronger context, additional prompting, caching, and will soon be enabled for local runtime in-browser or on your machine as appropriate.
+
+    - AI-Generated Test Plans Demo: https://youtu.be/aCCwvpMzT2g
+  </Accordion>
+</AccordionGroup>
