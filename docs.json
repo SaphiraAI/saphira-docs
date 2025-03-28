@@ -1,0 +1,75 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Saphira",
+  "colors": {
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373"
+  },
+  "favicon": "/favicon.png",
+  "navigation": {
+    "anchors": [
+      {
+        "anchor": "Introduction",
+        "icon": "book-open-cover",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Documentation",
+        "icon": "book-open",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "quickstart",
+              "development",
+              "configuration-management"
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Community",
+        "href": "https://join.slack.com/t/saphirausers/shared_invite/zt-31l6gfaww-dsu4Z1pcPyd6oM9VRA852Q",
+        "icon": "slack"
+      },
+      {
+        "anchor": "Blog",
+        "href": "https://saphira.ai/blog",
+        "icon": "newspaper"
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/dark.png",
+    "dark": "/logo/light.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:contact@saphira.ai"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://prod.saphira.ai"
+    }
+  },
+  "footer": {
+    "socials": {
+      "twitter": "https://twitter.com/saphira_ai",
+      "github": "https://github.com/SaphiraAI",
+      "linkedin": "https://www.linkedin.com/company/saphira-ai"
+    }
+  }
+}
