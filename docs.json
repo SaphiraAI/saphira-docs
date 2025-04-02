@@ -56,19 +56,18 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:contact@saphira.ai"
+        "href": "mailto:founders@saphira.ai"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
+      "label": "Log into Saphira",
       "href": "https://prod.saphira.ai"
     }
   },
   "footer": {
     "socials": {
       "twitter": "https://twitter.com/saphira_ai",
-      "github": "https://github.com/SaphiraAI",
       "linkedin": "https://www.linkedin.com/company/saphira-ai"
     }
   }
