@@ -61,14 +61,13 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
+      "label": "Log In",
       "href": "https://prod.saphira.ai"
     }
   },
   "footer": {
     "socials": {
       "twitter": "https://twitter.com/saphira_ai",
-      "github": "https://github.com/SaphiraAI",
       "linkedin": "https://www.linkedin.com/company/saphira-ai"
     }
   }
