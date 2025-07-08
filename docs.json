@@ -31,6 +31,9 @@
             "pages": [
               "quickstart",
               "development",
+              "standards-chatbot",
+              "safety-case-generation",
+              "verification-validation",
               "configuration-management"
             ]
           }
