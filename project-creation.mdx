@@ -7,153 +7,215 @@ description: 'Learn about the detailed project creation process in Saphira Serve
 
 This guide provides a detailed walkthrough of how projects are created and initialized in Saphira Server.
 
-## Project Structure
+## Project Creation
 
-When a new project is created in Saphira, the following structure is automatically generated:
+### Initial Project Setup
 
-```
-project_name/
-├── config/
-│   ├── standards/         # Standards configuration
-│   └── risk_matrix.json   # Risk assessment matrix configuration
-├── data/
-│   ├── hazards/          # Hazard analysis data
-│   ├── controls/         # Control measures
-│   └── safety_functions/ # Safety function definitions
-└── validation/
-    ├── test_plans/       # Verification and validation test plans
-    └── evidence/         # Test evidence and documentation
-```
+When creating a new project in Saphira, the following information is collected:
 
-## Creation Process
+1. **Required Information**
+   - Project Name (required)
+   - Project Description (optional)
+     - Can be manually entered
+     - Can be AI-generated based on project name
+   - Access Control
+     - Read permissions (email-based)
+     - Write permissions (email-based)
 
-### 1. Project Initialization
+2. **Project ID Generation**
+   - Unique project ID is generated
+   - For first project: `${projectId}.json` format
+   - For subsequent projects: standard UUID format
 
-When creating a new project, the following steps occur:
+### Project State Management
 
-1. **Project Configuration**
-   - Basic project metadata is collected
-   - Project type and applicable standards are selected
-   - Risk assessment methodology is configured
+The system manages project state across multiple levels:
 
-2. **Database Setup**
-   - Project schema is initialized
-   - Required collections are created
-   - Initial indexes are built for efficient querying
+1. **Local Storage**
+   ```javascript
+   localStorage.setItem('selectedProject', projectId)
+   ```
 
-3. **Standards Integration**
-   - Selected standards are loaded from the standards database
-   - Relevant requirements are mapped to the project
-   - Compliance frameworks are initialized
+2. **Global State**
+   ```javascript
+   setGlobalProjectId(projectId)
+   ```
 
-### 2. Initial Setup
+3. **Window Context**
+   ```javascript
+   window.selectedProjectElementUUID = projectId
+   ```
 
-After project creation, several automatic processes are triggered:
+## Project Onboarding
 
-1. **Risk Assessment Framework**
-   - Risk matrix is configured based on selected methodology
-   - Severity and probability levels are defined
-   - Risk categories and acceptance criteria are established
+After project creation, users are guided through an industry-specific onboarding flow:
 
-2. **Document Management**
-   - Document storage structure is initialized
-   - Version control system is set up
-   - Traceability links are prepared
+### 1. Industry Selection
 
-3. **User Access**
-   - Project roles are defined
-   - Initial permissions are set
-   - Collaboration features are enabled
+Users can choose from multiple onboarding paths:
 
-### 3. AI Integration Setup
+1. **Robotics & Automation**
+   - Robot Compliance Finder
+   - Automated hazard identification
+   - Standards mapping for robotics
 
-The following AI capabilities are configured:
+2. **Industrial Systems**
+   - Industrial Standards Finder
+   - Process safety requirements
+   - Machinery safety standards
 
-1. **Hazard Analysis**
-   - AI models for hazard identification are initialized
-   - Domain-specific knowledge bases are loaded
-   - Analysis templates are prepared
+3. **Automotive**
+   - Automotive Standards Finder
+   - ISO 26262 compliance
+   - ASIL determination
 
-2. **Standards Compliance**
-   - Regulatory requirements are mapped
-   - Compliance checking rules are configured
-   - Automatic validation criteria are set up
+4. **Consumer Products**
+   - Consumer Products Finder
+   - Product safety standards
+   - Regional certifications
 
-### 4. Integration Points
+5. **Space Systems**
+   - Space Project Analysis
+   - NASA standards integration
+   - Mission-specific requirements
 
-Saphira Server establishes connections with:
+6. **Manual Selection**
+   - Custom standards selection
+   - Framework configuration
+   - Manual requirements mapping
 
-1. **External Systems**
-   - Version control systems
-   - Document management systems
-   - Test management platforms
-   - CI/CD pipelines
+### 2. Industry-Specific Onboarding
 
-2. **Safety Tools**
-   - SISTEMA integration for safety function validation
-   - Risk assessment tools
-   - Verification and validation frameworks
+Each industry path has unique onboarding flows:
 
-## Post-Creation Configuration
+#### Robotics & Automation
+1. **Questionnaire Flow**
+   ```javascript
+   // Robot type identification
+   const robotType = await determineRobotType(answers);
+   // Generate hazards based on robot type
+   const hazards = await generateHazards(robotType);
+   ```
 
-After the initial setup, users can:
+2. **Standards Mapping**
+   - Automatic identification of applicable standards
+   - Robot-specific hazard analysis
+   - Safety function requirements
 
-1. **Customize Settings**
-   - Modify risk assessment parameters
-   - Configure additional standards
-   - Adjust validation criteria
-   - Set up custom fields
+#### Automotive Systems
+1. **Vehicle Classification**
+   ```typescript
+   interface VehicleInfo {
+     vehicleCategory: string;  // e.g., 'Passenger Car (M1)'
+     propulsionType: string;   // e.g., 'Battery Electric (BEV)'
+     autonomyLevel: string;    // e.g., 'Level 3 - Conditional Automation'
+   }
+   ```
 
-2. **Import Existing Data**
-   - Import hazard analyses from spreadsheets
-   - Upload existing safety documentation
-   - Import control measures
-   - Migrate legacy data
+2. **Safety Case Development**
+   - HARA (Hazard Analysis and Risk Assessment)
+   - Functional Safety Concept
+   - Technical Safety Concept
 
-3. **Setup Automation**
-   - Configure automatic hazard identification
-   - Set up compliance checking
-   - Enable automatic documentation generation
-   - Configure validation workflows
+#### Consumer Products
+1. **Standards Categories**
+   - Electrical Safety
+   - Battery & Power
+   - EMC & Wireless
+   - Environmental/Hazardous Substances
+   - Ergonomics & Labeling
+   - Cybersecurity & Privacy
+
+2. **Regional Certifications**
+   - Market-specific requirements
+   - Compliance documentation
+   - Testing requirements
+
+#### Space Systems
+1. **Project Analysis**
+   ```typescript
+   interface SpaceProjectData {
+     systemDescription: string;
+     missionType: string;
+     safetyRequirements: string[];
+     applicableStandards: string[];
+   }
+   ```
+
+2. **Standards Integration**
+   - NASA standards mapping
+   - Mission safety requirements
+   - Verification protocols
+
+### 3. Framework Configuration
+
+After industry selection, the system:
+
+1. **Standards Setup**
+   ```javascript
+   // Save framework settings
+   await fetch('/save_framework_settings', {
+     method: 'POST',
+     body: JSON.stringify({
+       project_id: projectId,
+       frameworks: selectedFrameworks,
+       check_frameworks: true
+     })
+   });
+   ```
+
+2. **Onboarding Completion**
+   ```javascript
+   // Mark onboarding as completed
+   await fetch('/mark_onboarding_completed', {
+     method: 'POST',
+     body: JSON.stringify({
+       project_id: projectId,
+       handle_decimal: true
+     })
+   });
+   ```
 
 ## Best Practices
 
-1. **Initial Configuration**
-   - Review and adjust risk matrix settings
-   - Verify standards selection
-   - Configure project-specific fields
-   - Set up user roles and permissions
+1. **Project Creation**
+   - Use descriptive project names
+   - Provide detailed project descriptions
+   - Configure appropriate access permissions
+   - Review AI-generated descriptions
 
-2. **Data Organization**
-   - Use consistent naming conventions
-   - Organize hazards by system components
-   - Group related control measures
-   - Maintain clear traceability
+2. **Industry Selection**
+   - Choose the most specific industry path
+   - Complete all questionnaire sections
+   - Review automatically selected standards
+   - Add custom requirements when needed
 
-3. **Integration Setup**
-   - Configure necessary external tool connections
-   - Set up document management integration
-   - Enable required AI features
-   - Verify automation workflows
+3. **Framework Setup**
+   - Verify selected standards
+   - Review compliance requirements
+   - Configure regional certifications
+   - Set up testing protocols
 
 ## Troubleshooting
 
-Common issues during project creation and their solutions:
+1. **Project Creation Issues**
+   ```javascript
+   // Common error handling
+   if (data?.error) {
+     console.error('CreateProjectModal: Error from server:', data);
+     alert(`Failed to create project: ${data.error}`);
+     return;
+   }
+   ```
 
-1. **Configuration Issues**
-   - Verify standards selection
-   - Check risk matrix configuration
-   - Validate user permissions
-   - Review integration settings
+2. **Onboarding Problems**
+   - Verify project ID format
+   - Check framework selection
+   - Review standards mapping
+   - Validate permissions setup
 
-2. **Data Import Problems**
-   - Validate data format
-   - Check file permissions
-   - Verify import mappings
-   - Review error logs
-
-3. **Integration Errors**
-   - Verify connection settings
-   - Check API access
-   - Validate credentials
-   - Review system logs
+3. **Framework Configuration**
+   - Confirm standards selection
+   - Verify regional requirements
+   - Check compliance mappings
+   - Review test protocols
