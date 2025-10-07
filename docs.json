@@ -30,6 +30,7 @@
             "group": "Get Started",
             "pages": [
               "quickstart",
+              "project-creation",
               "development",
               "standards-chatbot",
               "safety-case-generation",
