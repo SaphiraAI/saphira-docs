@@ -1,0 +1,221 @@
+---
+title: 'Project Creation Flow'
+description: 'Learn about the detailed project creation process in Saphira Server'
+---
+
+# Project Creation Flow
+
+This guide provides a detailed walkthrough of how projects are created and initialized in Saphira Server.
+
+## Project Creation
+
+### Initial Project Setup
+
+When creating a new project in Saphira, the following information is collected:
+
+1. **Required Information**
+   - Project Name (required)
+   - Project Description (optional)
+     - Can be manually entered
+     - Can be AI-generated based on project name
+   - Access Control
+     - Read permissions (email-based)
+     - Write permissions (email-based)
+
+2. **Project ID Generation**
+   - Unique project ID is generated
+   - For first project: `${projectId}.json` format
+   - For subsequent projects: standard UUID format
+
+### Project State Management
+
+The system manages project state across multiple levels:
+
+1. **Local Storage**
+   ```javascript
+   localStorage.setItem('selectedProject', projectId)
+   ```
+
+2. **Global State**
+   ```javascript
+   setGlobalProjectId(projectId)
+   ```
+
+3. **Window Context**
+   ```javascript
+   window.selectedProjectElementUUID = projectId
+   ```
+
+## Project Onboarding
+
+After project creation, users are guided through an industry-specific onboarding flow:
+
+### 1. Industry Selection
+
+Users can choose from multiple onboarding paths:
+
+1. **Robotics & Automation**
+   - Robot Compliance Finder
+   - Automated hazard identification
+   - Standards mapping for robotics
+
+2. **Industrial Systems**
+   - Industrial Standards Finder
+   - Process safety requirements
+   - Machinery safety standards
+
+3. **Automotive**
+   - Automotive Standards Finder
+   - ISO 26262 compliance
+   - ASIL determination
+
+4. **Consumer Products**
+   - Consumer Products Finder
+   - Product safety standards
+   - Regional certifications
+
+5. **Space Systems**
+   - Space Project Analysis
+   - NASA standards integration
+   - Mission-specific requirements
+
+6. **Manual Selection**
+   - Custom standards selection
+   - Framework configuration
+   - Manual requirements mapping
+
+### 2. Industry-Specific Onboarding
+
+Each industry path has unique onboarding flows:
+
+#### Robotics & Automation
+1. **Questionnaire Flow**
+   ```javascript
+   // Robot type identification
+   const robotType = await determineRobotType(answers);
+   // Generate hazards based on robot type
+   const hazards = await generateHazards(robotType);
+   ```
+
+2. **Standards Mapping**
+   - Automatic identification of applicable standards
+   - Robot-specific hazard analysis
+   - Safety function requirements
+
+#### Automotive Systems
+1. **Vehicle Classification**
+   ```typescript
+   interface VehicleInfo {
+     vehicleCategory: string;  // e.g., 'Passenger Car (M1)'
+     propulsionType: string;   // e.g., 'Battery Electric (BEV)'
+     autonomyLevel: string;    // e.g., 'Level 3 - Conditional Automation'
+   }
+   ```
+
+2. **Safety Case Development**
+   - HARA (Hazard Analysis and Risk Assessment)
+   - Functional Safety Concept
+   - Technical Safety Concept
+
+#### Consumer Products
+1. **Standards Categories**
+   - Electrical Safety
+   - Battery & Power
+   - EMC & Wireless
+   - Environmental/Hazardous Substances
+   - Ergonomics & Labeling
+   - Cybersecurity & Privacy
+
+2. **Regional Certifications**
+   - Market-specific requirements
+   - Compliance documentation
+   - Testing requirements
+
+#### Space Systems
+1. **Project Analysis**
+   ```typescript
+   interface SpaceProjectData {
+     systemDescription: string;
+     missionType: string;
+     safetyRequirements: string[];
+     applicableStandards: string[];
+   }
+   ```
+
+2. **Standards Integration**
+   - NASA standards mapping
+   - Mission safety requirements
+   - Verification protocols
+
+### 3. Framework Configuration
+
+After industry selection, the system:
+
+1. **Standards Setup**
+   ```javascript
+   // Save framework settings
+   await fetch('/save_framework_settings', {
+     method: 'POST',
+     body: JSON.stringify({
+       project_id: projectId,
+       frameworks: selectedFrameworks,
+       check_frameworks: true
+     })
+   });
+   ```
+
+2. **Onboarding Completion**
+   ```javascript
+   // Mark onboarding as completed
+   await fetch('/mark_onboarding_completed', {
+     method: 'POST',
+     body: JSON.stringify({
+       project_id: projectId,
+       handle_decimal: true
+     })
+   });
+   ```
+
+## Best Practices
+
+1. **Project Creation**
+   - Use descriptive project names
+   - Provide detailed project descriptions
+   - Configure appropriate access permissions
+   - Review AI-generated descriptions
+
+2. **Industry Selection**
+   - Choose the most specific industry path
+   - Complete all questionnaire sections
+   - Review automatically selected standards
+   - Add custom requirements when needed
+
+3. **Framework Setup**
+   - Verify selected standards
+   - Review compliance requirements
+   - Configure regional certifications
+   - Set up testing protocols
+
+## Troubleshooting
+
+1. **Project Creation Issues**
+   ```javascript
+   // Common error handling
+   if (data?.error) {
+     console.error('CreateProjectModal: Error from server:', data);
+     alert(`Failed to create project: ${data.error}`);
+     return;
+   }
+   ```
+
+2. **Onboarding Problems**
+   - Verify project ID format
+   - Check framework selection
+   - Review standards mapping
+   - Validate permissions setup
+
+3. **Framework Configuration**
+   - Confirm standards selection
+   - Verify regional requirements
+   - Check compliance mappings
+   - Review test protocols
