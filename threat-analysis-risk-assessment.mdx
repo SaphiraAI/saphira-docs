@@ -1,0 +1,420 @@
+---
+title: 'Threat Analysis & Risk Assessment (TARA)'
+description: 'Perform comprehensive cybersecurity threat analysis and risk assessment according to ISO 21434 with AI-powered automation.'
+---
+
+## Cybersecurity Threat Analysis & Risk Assessment (TARA)
+
+Learn how to use Saphira to perform comprehensive cybersecurity threat analysis and risk assessment (TARA) for automotive systems! Saphira implements the complete ISO 21434 cybersecurity workflow, enabling automated threat identification, risk assessment, and security requirement generation.
+
+### What is TARA?
+
+TARA (Threat Analysis and Risk Assessment) is a systematic process for identifying and evaluating cybersecurity threats to automotive systems according to ISO 21434. Saphira provides an AI-powered workflow that guides you through the complete cybersecurity engineering process:
+
+- **Asset Identification**: Identify cybersecurity-critical assets in your system
+- **Threat Analysis**: Discover potential threat scenarios and attack vectors
+- **Risk Assessment**: Evaluate the impact and feasibility of identified threats
+- **Security Goals**: Define cybersecurity goals to mitigate threats
+- **Security Requirements**: Generate detailed technical security requirements
+- **Security Controls**: Specify security controls and countermeasures
+
+## Getting Started with TARA
+
+<AccordionGroup>
+  <Accordion icon="database" title="Define Item and Identify Assets">
+    Start by defining your system (item definition) and identifying cybersecurity assets. Saphira analyzes your system architecture, interfaces, and components to automatically identify:
+    - Hardware components with cybersecurity relevance
+    - Software modules handling sensitive data
+    - Communication interfaces and protocols
+    - Data assets requiring protection (CIA triad: Confidentiality, Integrity, Availability)
+  </Accordion>
+  <Accordion icon="shield-alert" title="Perform Threat Analysis">
+    Saphira automatically generates threat scenarios based on your identified assets using STRIDE methodology and ISO 21434 guidance:
+    - Spoofing attacks
+    - Tampering with data or code
+    - Repudiation threats
+    - Information disclosure
+    - Denial of service
+    - Elevation of privilege
+    
+    Each threat scenario includes attack vectors, potential impact, and technical details.
+  </Accordion>
+  <Accordion icon="chart-line" title="Assess Risk Levels">
+    For each identified threat, Saphira evaluates:
+    - **Impact Rating**: Potential damage to safety, privacy, financial, or operational aspects
+    - **Attack Feasibility**: Required expertise, time, equipment, and opportunity
+    - **CAL (Cybersecurity Assurance Level)**: Automatic calculation based on ISO 21434 risk matrix
+    
+    Risk levels guide prioritization of security efforts.
+  </Accordion>
+</AccordionGroup>
+
+## TARA Workflow Steps
+
+Saphira guides you through a systematic cybersecurity analysis workflow:
+
+<AccordionGroup>
+
+<Accordion icon="file-text" title="Step 1: Item Definition">
+  Define your system including:
+  - **Function**: Primary function of the system
+  - **System/Item**: Hardware and software components
+  - **Interfaces**: Communication channels (CAN, Ethernet, USB, wireless)
+  - **Operating Modes**: Normal operation, degraded mode, maintenance mode
+  - **System Boundary**: What's included and excluded from analysis
+  
+  Saphira supports multiple automotive safety standards:
+  - ISO 26262 (Functional Safety)
+  - ISO 21448 (SOTIF - Safety of the Intended Functionality)
+  - ISO 25119 (Agricultural Machinery)
+</Accordion>
+
+<Accordion icon="database" title="Step 2: Cybersecurity Assets">
+  Saphira automatically identifies cybersecurity assets from your item definition:
+  - **Hardware Assets**: ECUs, sensors, actuators, communication modules
+  - **Software Assets**: Application software, firmware, bootloaders
+  - **Data Assets**: Authentication tokens, cryptographic keys, personal data
+  - **Communication Assets**: Network protocols, message formats
+  
+  Each asset is classified by:
+  - Asset type and category
+  - Cybersecurity properties (confidentiality, integrity, availability)
+  - Damage scenarios if compromised
+</Accordion>
+
+<Accordion icon="shield-alert" title="Step 3: Threat Analysis">
+  AI-powered threat identification generates comprehensive threat scenarios:
+  - **Threat Agents**: External attackers, insiders, automated tools
+  - **Attack Paths**: Entry points and propagation through system
+  - **Attack Methods**: Injection, reverse engineering, DoS, physical access
+  - **Prerequisites**: Required knowledge, access, and equipment
+  
+  Threats are linked to specific assets and include technical details of exploitation.
+</Accordion>
+
+<Accordion icon="target" title="Step 4: Cybersecurity Goals">
+  Based on identified threats, Saphira derives cybersecurity goals:
+  - Protect specific assets from identified threats
+  - Maintain confidentiality, integrity, and availability
+  - Ensure secure communication and data handling
+  - Prevent unauthorized access and control
+  
+  Each goal includes:
+  - Target assets and threat scenarios
+  - Required CAL (Cybersecurity Assurance Level)
+  - Verification criteria
+</Accordion>
+
+<Accordion icon="cog" title="Step 5: Cybersecurity Requirements">
+  Saphira generates detailed technical requirements to achieve cybersecurity goals:
+  - Authentication and authorization mechanisms
+  - Cryptographic protection requirements
+  - Secure communication protocols
+  - Intrusion detection and logging
+  - Secure boot and code signing
+  - Input validation and sanitization
+  
+  Requirements include:
+  - Specific technical implementation guidance
+  - Traceability to goals and threats
+  - Verification methods
+  - ASIL/CAL levels
+</Accordion>
+
+<Accordion icon="lock" title="Step 6: Cybersecurity Controls">
+  Define specific security controls and countermeasures:
+  - **Preventive Controls**: Firewalls, access control, encryption
+  - **Detective Controls**: Intrusion detection, logging, monitoring
+  - **Corrective Controls**: Incident response, recovery procedures
+  
+  Each control is mapped to requirements and includes:
+  - Implementation details
+  - Effectiveness rating
+  - Verification evidence requirements
+</Accordion>
+
+</AccordionGroup>
+
+## Advanced TARA Features
+
+<AccordionGroup>
+
+<Accordion icon="git-branch" title="Parallel Workflows (FuSa + Cybersecurity)">
+  Saphira supports running functional safety (FuSa) and cybersecurity (TARA) workflows in parallel:
+  
+  **Functional Safety Path (ISO 26262)**:
+  - Item Definition → Fault Model → HARA → FSC → Failures → TSC
+  
+  **Cybersecurity Path (ISO 21434)**:
+  - Item Definition → Assets → Threats → Goals → Requirements → Controls
+  
+  Both workflows share the same item definition and can be executed simultaneously for comprehensive safety and security analysis.
+</Accordion>
+
+<Accordion icon="pencil" title="Inline Editing & Feedback">
+  Review and refine AI-generated artifacts:
+  - Click any item to edit details inline
+  - Provide feedback on specific threats or requirements
+  - AI learns from your feedback and regenerates improved results
+  - Track feedback history and iterative improvements
+  
+  Saphira maintains context across feedback loops for continuous refinement.
+</Accordion>
+
+<Accordion icon="file-check" title="Multi-Component TARA">
+  For complex systems with multiple components:
+  - Perform TARA for each component separately
+  - Load and analyze existing component assessments
+  - Import functions and interfaces from other components
+  - Generate integrated threat scenarios across components
+  
+  Perfect for systems with multiple ECUs or distributed architectures.
+</Accordion>
+
+<Accordion icon="file-import" title="Reference Document Import">
+  Import existing documentation to seed your TARA:
+  - Upload system specifications, architecture documents, or previous assessments
+  - AI extracts relevant information automatically
+  - Populates item definition, assets, and known threats
+  - Accelerates TARA creation with existing knowledge
+  
+  Supported formats: PDF, Word, Excel, CSV
+</Accordion>
+
+<Accordion icon="diagram-project" title="Traceability Visualization">
+  Visualize relationships across your cybersecurity analysis:
+  - Asset → Threat → Goal → Requirement → Control traceability
+  - Interactive graph view with filtering
+  - Identify coverage gaps and missing links
+  - Ensure complete traceability for audits
+  
+  Automatically generated traceability matrix for compliance documentation.
+</Accordion>
+
+<Accordion icon="settings" title="Customizable Workflows">
+  Adapt the TARA workflow to your organization's needs:
+  - Add custom workflow steps
+  - Configure default threat categories
+  - Define organization-specific security requirements
+  - Create templates for common system types
+  
+  Use Workflow Management to save and reuse configurations.
+</Accordion>
+
+</AccordionGroup>
+
+## Risk Assessment and CAL Determination
+
+<AccordionGroup>
+
+<Accordion icon="chart-line" title="Impact Rating">
+  Saphira evaluates threat impact across multiple dimensions:
+  
+  **Safety Impact**: 
+  - S0: No impact on safety
+  - S1: Light injuries
+  - S2: Severe injuries
+  - S3: Life-threatening/fatal injuries
+  
+  **Financial Impact**:
+  - F0: Negligible
+  - F1: Moderate financial loss
+  - F2: Significant financial loss
+  - F3: Severe financial loss
+  
+  **Operational Impact**:
+  - O0: No operational impact
+  - O1: Limited operational impact
+  - O2: Significant operational impact
+  - O3: Severe operational impact
+  
+  **Privacy Impact**:
+  - P0: No privacy violation
+  - P1: Minor privacy violation
+  - P2: Significant privacy violation
+  - P3: Severe privacy violation
+</Accordion>
+
+<Accordion icon="lock-keyhole" title="Attack Feasibility Analysis">
+  Assess how feasible each attack is according to ISO 21434:
+  
+  **Elapsed Time**: Time required to develop and execute attack
+  **Specialist Expertise**: Required technical knowledge and skills
+  **Knowledge of Item**: Understanding of target system needed
+  **Window of Opportunity**: Access time and conditions
+  **Equipment**: Tools and resources required
+  
+  Feasibility ratings:
+  - **Very Low**: Highly skilled experts with extensive resources
+  - **Low**: Skilled attackers with significant resources
+  - **Medium**: Proficient attackers with moderate resources
+  - **High**: Easily achievable with common tools
+</Accordion>
+
+<Accordion icon="shield-check" title="CAL Calculation">
+  Cybersecurity Assurance Level (CAL) is automatically calculated:
+  
+  **Risk Matrix**: Impact × Feasibility → CAL
+  - **CAL QM**: Quality Management sufficient
+  - **CAL 1**: Low cybersecurity requirements
+  - **CAL 2**: Medium cybersecurity requirements
+  - **CAL 3**: High cybersecurity requirements
+  - **CAL 4**: Very high cybersecurity requirements
+  
+  CAL determines the rigor of security measures and verification activities.
+</Accordion>
+
+</AccordionGroup>
+
+## Export and Documentation
+
+<AccordionGroup>
+
+<Accordion icon="file-text" title="TARA Reports">
+  Generate comprehensive cybersecurity documentation:
+  - Complete TARA report with all threats and controls
+  - Asset inventory and classification
+  - Risk assessment matrix
+  - Traceability matrix (Asset → Threat → Goal → Requirement → Control)
+  - Residual risk analysis
+  
+  Export formats: PDF, Excel, CSV, JSON
+</Accordion>
+
+<Accordion icon="file-spreadsheet" title="CSV Export for Integration">
+  Export TARA data to CSV for integration with:
+  - Requirements management tools (DOORS, Jama, Polarion)
+  - Risk management platforms
+  - Issue tracking systems (Jira, Azure DevOps)
+  - Custom compliance databases
+  
+  Includes all attributes, relationships, and metadata.
+</Accordion>
+
+<Accordion icon="shield-check" title="Compliance Documentation">
+  Saphira generates ISO 21434-compliant documentation:
+  - Cybersecurity Case structure
+  - Work products for each lifecycle phase
+  - Evidence of threat analysis completeness
+  - CAL justification and rationale
+  - Traceability documentation
+  
+  Ready for internal reviews and external audits.
+</Accordion>
+
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+
+<Accordion icon="lightbulb" title="Start with Clear Item Definition">
+  A comprehensive item definition is critical for effective TARA:
+  - List all interfaces explicitly (CAN, Ethernet, diagnostic ports, wireless)
+  - Include all operating modes (normal, degraded, maintenance, update)
+  - Define system boundaries clearly
+  - Specify hardware and software components
+  
+  Better item definition leads to more complete asset and threat identification.
+</Accordion>
+
+<Accordion icon="refresh-cw" title="Iterate with Feedback">
+  TARA is an iterative process:
+  - Review AI-generated threats and provide feedback
+  - Refine and add missing threat scenarios
+  - Adjust impact and feasibility ratings based on expertise
+  - Regenerate downstream artifacts after updates
+  
+  Each iteration improves accuracy and completeness.
+</Accordion>
+
+<Accordion icon="users" title="Collaborate Across Teams">
+  Effective TARA requires multiple perspectives:
+  - **Security experts**: Identify attack vectors and vulnerabilities
+  - **System architects**: Understand interfaces and data flows
+  - **Safety engineers**: Assess safety-related impacts
+  - **Software developers**: Evaluate implementation feasibility
+  
+  Use Saphira's feedback and comment features for team collaboration.
+</Accordion>
+
+<Accordion icon="link" title="Integrate with Functional Safety">
+  Combine TARA with functional safety analysis:
+  - Run both workflows in parallel from same item definition
+  - Identify security-safety interactions
+  - Address combined ASIL/CAL requirements
+  - Ensure holistic system protection
+  
+  Saphira automatically manages both workflows simultaneously.
+</Accordion>
+
+<Accordion icon="shield-check" title="Validate Completeness">
+  Ensure your TARA is complete:
+  - Verify all interfaces have associated threat scenarios
+  - Check that all high-value assets are protected
+  - Ensure each threat has mitigating controls
+  - Review traceability for gaps
+  - Document residual risks and acceptance rationale
+  
+  Use Saphira's traceability visualization to identify gaps.
+</Accordion>
+
+</AccordionGroup>
+
+## Common Use Cases
+
+<AccordionGroup>
+
+<Accordion icon="car" title="Automotive ECU Cybersecurity">
+  Perform TARA for automotive electronic control units:
+  - Domain controllers (ADAS, infotainment, powertrain)
+  - Gateway ECUs with multiple network interfaces
+  - Telematics and connectivity modules
+  - Over-the-air (OTA) update systems
+  
+  Identify threats from external connectivity and inter-ECU communication.
+</Accordion>
+
+<Accordion icon="signal-stream" title="V2X Communication Systems">
+  Analyze vehicle-to-everything (V2X) communication security:
+  - Identify threats to V2V (vehicle-to-vehicle) messaging
+  - Assess V2I (vehicle-to-infrastructure) vulnerabilities
+  - Evaluate message authentication and integrity
+  - Consider privacy of location and identity data
+  
+  Particularly critical for autonomous and connected vehicles.
+</Accordion>
+
+<Accordion icon="cloud" title="Connected and Cloud Services">
+  TARA for backend services and cloud platforms:
+  - Mobile app security and authentication
+  - Cloud data storage and processing
+  - Remote diagnostics and vehicle control
+  - User account and privacy protection
+  
+  Consider both vehicle-side and cloud-side threats.
+</Accordion>
+
+<Accordion icon="microchip" title="Autonomous Vehicle Systems">
+  Comprehensive cybersecurity for autonomous driving:
+  - Sensor spoofing and manipulation
+  - ML model poisoning and adversarial attacks
+  - Vehicle control system compromise
+  - Map and localization data integrity
+  
+  Critical for achieving safe and secure autonomous operation.
+</Accordion>
+
+</AccordionGroup>
+
+## Next Steps
+
+After completing your TARA:
+
+1. **Implement Security Controls**: Use generated requirements to design and implement security measures
+2. **Verification & Validation**: Create test plans to verify security controls (see [Verification & Validation](/verification-validation))
+3. **Safety Case Generation**: Integrate TARA results into your safety case (see [Safety Case Generation](/safety-case-generation))
+4. **Ongoing Monitoring**: Update TARA as system evolves and new threats emerge
+
+Saphira maintains version history and traceability throughout the development lifecycle, ensuring your cybersecurity analysis stays current and compliant.
+
