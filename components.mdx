@@ -1,0 +1,338 @@
+---
+title: 'Components Tab'
+description: 'Learn how to manage and organize product components in Saphira'
+---
+
+# Components Tab
+
+The Components tab provides a comprehensive interface for managing and organizing all product components within your project. This feature helps you track component details, compliance information, and project status.
+
+## Overview
+
+The Components tab allows you to:
+
+- View and manage all project components in a structured table
+- Import components from various sources (BOM spreadsheets, schematics, documents)
+- Track UL compliance information
+- Organize components by category
+- Export component data
+- Add components manually with detailed specifications
+
+## Component Management
+
+### Viewing Components
+
+The Components tab displays all components in an interactive table with the following information:
+
+#### Component Details
+- **Component Name**: The name/identifier of the component
+- **Part Number**: Customer part number
+- **Manufacturer**: Component manufacturer
+- **MPN**: Manufacturer part number
+- **Type**: Component type classification
+- **Quantity**: Quantity of the component
+- **Revision**: Revision number
+
+#### UL Compliance Information
+- **UL Compliance Type**: Compliance status (Listed, Recognized, Not Compliant)
+- **UL File/Agency Number**: UL file or agency number
+- **Frame Rating**: Frame rating and connection information
+- **UL Compliance Updated**: Timestamp of last compliance check
+- **UL PDF Attached**: Whether compliance documentation is attached
+
+#### Project Management
+- **Status**: Component status (Pending, In Progress, Completed)
+- **Owner**: Component owner/assignee
+- **Release Status**: Release status information
+
+#### Additional Information
+- **Notes**: General notes about the component
+- **Validation Notes**: Validation-specific notes
+- **Extra/Remarks**: Additional remarks
+
+### Component Categories
+
+Components can be filtered by category:
+
+- **All Components**: Shows all components regardless of category
+- **Electrical**: Electrical components
+- **Safety Systems**: Safety system components
+- **Control Systems**: Control system components
+
+### Status Summary
+
+The tab displays a status summary showing:
+- Number of completed components
+- Number of components in progress
+- Number of pending components
+
+## Adding Components
+
+### Manual Component Addition
+
+You can add components manually through the "Add Component" button, which opens a comprehensive form:
+
+#### Basic Information
+- **Component Name** (required): Name of the component
+- **System Type**: Choose between "Physical Machine/Equipment" or "Software Component/Controller"
+
+#### System Description
+- **Function/Description**: Describe the component's purpose and key features
+- **Operating Environment**: Select from predefined environments:
+  - Industrial Manufacturing
+  - Clean Room
+  - Hazardous Area
+  - Outdoor
+  - Laboratory
+  - Mining Operations
+  - Automotive Manufacturing
+  - Other
+
+#### Operating Modes
+- **Operating Modes**: Comma-separated list of operating modes (e.g., "Normal Operation, Setup Mode, Maintenance Mode")
+- **Setup Mode Description**: Detailed description of setup mode procedures
+- **Maintenance Mode Description**: Detailed description of maintenance mode procedures
+
+#### System Interfaces
+- **Interfaces & Connections**: Describe control interfaces, sensor inputs, actuator outputs, and communication protocols
+
+#### Advanced HARA Fields (Optional)
+- **System Tasks**: JSON format for task definitions in ODD (Operational Design Domain)
+- **System Variability**: JSON format for variability factors
+
+#### Additional Information
+- **Notes**: Any additional notes or remarks
+
+## Importing Components
+
+The Components tab supports multiple import methods:
+
+### BOM Spreadsheet Import
+
+1. Click the **Import** button
+2. Select **BOM Spreadsheet**
+3. Upload an XLSX or XLS file
+4. The system automatically detects column headers and imports components
+
+### Document/Image Import
+
+1. Click the **Import** button
+2. Select **Document/Image**
+3. Navigate to the Reference Document Automation workflow
+4. Import components from uploaded documents or images
+
+### Schematic Import
+
+1. Click the **Import** button
+2. Select **Schematic Import**
+3. Choose a schematic document from your project files
+4. The system analyzes the schematic and imports missing components
+5. Only numeric part numbers are captured (alphanumeric references like R1, C1 are ignored)
+
+Supported schematic formats:
+- PDF files
+- PNG/JPG images
+- KiCad schematic files (.sch, .kicad)
+- Files with "schematic" in the filename
+
+## UL Compliance Checking
+
+### Running Compliance Checks
+
+The Components tab includes automated UL compliance checking:
+
+1. Click **Run UL Compliance Check**
+2. Choose between two methods:
+
+#### AI Analysis (Recommended)
+- Uses advanced AI to analyze component data
+- More accurate and faster than web scraping
+- Determines UL compliance status automatically
+
+#### Automated Web Scraping
+- Automatically searches UL databases and websites
+- May take longer than AI analysis
+- Less reliable than AI analysis
+
+### Compliance Check Behavior
+
+- Only components that haven't been marked as compliant are checked
+- The check respects current table filters
+- You'll see a confirmation dialog showing how many components will be checked
+- Results are updated automatically after the check completes
+
+### Compliance Status Indicators
+
+Components display color-coded compliance status:
+- **Green**: Listed/Compliant
+- **Yellow**: Recognized
+- **Red**: Not Compliant/Unknown
+
+## Editing Components
+
+### Inline Editing
+
+Most fields in the components table can be edited directly:
+1. Click on any editable cell
+2. Make your changes
+3. Press Enter or click outside the cell to save
+
+### Notes Editing
+
+Notes fields use a popup editor for longer text:
+1. Click on a Notes cell
+2. A larger text editor opens
+3. Enter your notes
+4. Save your changes
+
+## Component Selection and Deletion
+
+### Selecting Components
+
+- Click on rows to select individual components
+- Use checkboxes for multiple selection
+- Selected components are highlighted
+
+### Deleting Components
+
+#### Delete Selected Components
+1. Select one or more components
+2. Click **Delete Selected**
+3. Confirm the deletion
+4. Selected components are permanently removed
+
+#### Delete All Components
+1. Click **Delete All**
+2. Confirm the action (double confirmation required)
+3. **Warning**: This permanently deletes ALL components and cannot be undone
+
+## Exporting Components
+
+### Export to Excel
+
+1. Click **Export XLSX**
+2. The system generates an Excel file with all component data
+3. The file is automatically downloaded
+
+The exported file includes:
+- All component details
+- UL compliance information
+- Project management fields
+- Additional notes and remarks
+
+## Table Features
+
+### Filtering and Sorting
+
+- **Column Filters**: Each column has a filter option
+- **Floating Filters**: Quick filter access at the top of each column
+- **Sorting**: Click column headers to sort ascending/descending
+- **Multi-column Sorting**: Hold Shift while clicking headers
+
+### Column Management
+
+- **Resize Columns**: Drag column borders to resize
+- **Reorder Columns**: Drag column headers to reorder
+- **Show/Hide Columns**: Use the column management panel
+- **Column Groups**: Columns are organized into logical groups
+
+### Advanced Features
+
+- **Range Selection**: Select ranges of cells for copying
+- **Copy to Clipboard**: Copy cell values with Ctrl+C
+- **Search**: Use column filters to search for specific values
+- **Sidebar**: Access column and filter management panels
+
+## Best Practices
+
+### Component Organization
+
+1. **Use Descriptive Names**: Choose clear, descriptive component names
+2. **Complete All Fields**: Fill in as much information as possible for better tracking
+3. **Regular Updates**: Keep component information current
+4. **Status Tracking**: Update component status as work progresses
+
+### Import Workflows
+
+1. **Start with BOM**: Import your Bill of Materials first
+2. **Supplement with Schematics**: Use schematic import to catch missing components
+3. **Verify Imports**: Review imported components for accuracy
+4. **Manual Additions**: Add any missing components manually
+
+### Compliance Management
+
+1. **Run Regular Checks**: Periodically run UL compliance checks
+2. **Review Results**: Verify compliance status for all components
+3. **Attach Documentation**: Link UL PDFs when available
+4. **Track Updates**: Monitor compliance update timestamps
+
+### Data Management
+
+1. **Regular Exports**: Export component data regularly as backups
+2. **Version Control**: Use revision fields to track component versions
+3. **Notes**: Document important information in notes fields
+4. **Validation**: Use validation notes for compliance tracking
+
+## Troubleshooting
+
+### Import Issues
+
+**Problem**: BOM import fails or shows errors
+- **Solution**: Verify file format is XLSX or XLS
+- **Solution**: Check that column headers are present
+- **Solution**: Ensure file is not corrupted
+
+**Problem**: Schematic import doesn't find components
+- **Solution**: Verify schematic file format is supported
+- **Solution**: Check that part numbers are visible in the schematic
+- **Solution**: Ensure schematic is uploaded to project documents first
+
+### Compliance Check Issues
+
+**Problem**: Compliance check doesn't run
+- **Solution**: Verify components are selected/filtered correctly
+- **Solution**: Check that components need compliance checking (not already marked compliant)
+- **Solution**: Ensure project ID is valid
+
+**Problem**: Compliance results are incorrect
+- **Solution**: Verify component manufacturer and part number information
+- **Solution**: Try running AI analysis instead of web scraping
+- **Solution**: Manually update compliance status if needed
+
+### Display Issues
+
+**Problem**: Components table doesn't load
+- **Solution**: Refresh the page
+- **Solution**: Check browser console for errors
+- **Solution**: Verify project ID is correct
+
+**Problem**: Columns are too narrow/wide
+- **Solution**: Resize columns by dragging borders
+- **Solution**: Use "Size Columns to Fit" option
+- **Solution**: Reset column widths in column management panel
+
+## Integration with Other Features
+
+### TARA Workflow
+
+Components are used in the TARA (Threat Analysis and Risk Assessment) workflow:
+- Select components for cybersecurity analysis
+- Clone TARA data between components
+- Continue existing TARA analysis for specific components
+
+### Standards Compliance
+
+Components can be linked to:
+- Applicable standards
+- Compliance requirements
+- Testing protocols
+- Certification status
+
+### Project Management
+
+Components integrate with:
+- Project status tracking
+- Owner assignment
+- Release management
+- Validation workflows
+
