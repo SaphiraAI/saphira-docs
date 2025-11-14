@@ -36,7 +36,8 @@
               "standards-chatbot",
               "safety-case-generation",
               "verification-validation",
-              "configuration-management"
+              "configuration-management",
+              "components"
             ]
           }
         ]
