@@ -31,13 +31,39 @@
             "pages": [
               "quickstart",
               "project-creation",
-              "development",
+              "development"
+            ]
+          },
+          {
+            "group": "Extraction & Requirements",
+            "pages": [
+              "document-extraction",
+              "requirement-refinement",
+              "configuration-management"
+            ]
+          },
+          {
+            "group": "Safety Analysis",
+            "pages": [
               "threat-analysis-risk-assessment",
-              "standards-chatbot",
-              "safety-case-generation",
-              "verification-validation",
-              "configuration-management",
+              "fmea-analysis",
               "components"
+            ]
+          },
+          {
+            "group": "Verification & Compliance",
+            "pages": [
+              "verification-validation",
+              "test-generation",
+              "clause-mapping-compliance"
+            ]
+          },
+          {
+            "group": "Safety Case & Standards",
+            "pages": [
+              "safety-case-generation",
+              "gsn-safety-case",
+              "standards-chatbot"
             ]
           }
         ]

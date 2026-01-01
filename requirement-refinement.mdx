@@ -1,0 +1,257 @@
+---
+title: 'Multi-Level Requirement Refinement'
+description: 'AI-powered requirement decomposition and refinement from stakeholder needs to SW/HW specifications.'
+---
+
+## Multi-Level Requirement Refinement
+
+Saphira provides comprehensive support for refining requirements through the complete development lifecycle—from high-level stakeholder needs down to detailed software and hardware specifications.
+
+### Requirement Hierarchy Levels
+
+<AccordionGroup>
+
+<Accordion icon="users" title="Stakeholder Requirements">
+  High-level needs from users, operators, and external stakeholders:
+  - User perspective terms (user, operator, driver)
+  - System-level scope and context
+  - Natural language expressions of needs
+  - Business and operational objectives
+  
+  **Example**: "The operator shall be able to safely stop the machine in an emergency"
+</Accordion>
+
+<Accordion icon="cube" title="System Requirements">
+  System-level specifications that address stakeholder needs:
+  - Technical terms and specifications
+  - Performance criteria and constraints
+  - System-level behavior definitions
+  - Interface requirements between major components
+  
+  **Example**: "The system shall achieve a maximum stopping time of 500ms from emergency stop activation"
+</Accordion>
+
+<Accordion icon="boxes-stacked" title="Subsystem Requirements">
+  Requirements allocated to specific subsystems:
+  - Subsystem interaction specifications
+  - Interface definitions between subsystems
+  - Subsystem-specific performance requirements
+  - Integration considerations
+  
+  **Example**: "The brake subsystem shall provide a minimum braking force of 5000N within 200ms of command receipt"
+</Accordion>
+
+<Accordion icon="microchip" title="Component Requirements">
+  Detailed specifications for individual components:
+  - Component-specific parameters
+  - Hardware and software specifications
+  - Detailed technical constraints
+  - Testable acceptance criteria
+  
+  **Example**: "The brake actuator ECU shall process brake commands within 10ms and generate PWM output at 20kHz"
+</Accordion>
+
+<Accordion icon="memory" title="Hardware (HW) Requirements">
+  Hardware-specific implementation requirements:
+  - Physical specifications
+  - Electrical parameters
+  - Environmental constraints
+  - Manufacturing requirements
+  
+  **Example**: "The brake actuator shall operate in temperature range -40°C to +85°C with IP67 protection"
+</Accordion>
+
+<Accordion icon="code" title="Software (SW) Requirements">
+  Software-specific implementation requirements:
+  - Functional algorithms
+  - Timing constraints
+  - Memory requirements
+  - Coding standards compliance
+  
+  **Example**: "The brake control algorithm shall execute in ≤5ms per cycle and use ≤64KB RAM"
+</Accordion>
+
+</AccordionGroup>
+
+## Requirement Classification
+
+### Automatic Classification
+
+Saphira automatically analyzes requirements to suggest their appropriate level:
+
+<AccordionGroup>
+
+<Accordion icon="brain" title="Classification Analysis">
+  The system examines requirement text for:
+  - **User Perspective Terms**: user, operator, driver, passenger, customer
+  - **Technical Terms**: voltage, current, frequency, bandwidth, latency
+  - **System-Level Scope**: system shall, the equipment, overall performance
+  - **Component Terms**: ECU, sensor, actuator, module, controller
+  - **Subsystem Indicators**: interface, communication, integration, connection
+  - **Hardware Terms**: physical, electrical, mechanical, thermal, environmental
+  - **Software Terms**: algorithm, function, code, memory, processing
+</Accordion>
+
+<Accordion icon="lightbulb" title="Dynamic Recommendations">
+  Based on analysis, Saphira provides recommendations:
+  
+  For **Stakeholder Level**:
+  - Add user perspective terms
+  - Remove technical implementation details
+  - Broaden scope to system-level concerns
+  
+  For **System Level**:
+  - Add system-level scope indicators
+  - Remove component-specific details
+  - Add technical terms for specificity
+  
+  For **Component Level**:
+  - Add component-specific terms
+  - Narrow scope to component concerns
+  - Include measurable parameters
+</Accordion>
+
+</AccordionGroup>
+
+## Requirement Decomposition Workflow
+
+### Generating Child Requirements
+
+<AccordionGroup>
+
+<Accordion icon="sitemap" title="Step 1: Select Parent Requirement">
+  From the Requirements table:
+  1. Select a requirement to decompose
+  2. Click **Generate Children** or use the "+" decomposition action
+  3. Choose decomposition type:
+     - **Functional Decomposition**: Break down by functions
+     - **Architectural Decomposition**: Break down by components
+     - **Safety Decomposition**: Break down by safety aspects
+</Accordion>
+
+<Accordion icon="wand-magic-sparkles" title="Step 2: AI-Assisted Generation">
+  Saphira generates child requirements following INCOSE principles:
+  
+  - **Atomicity**: Each requirement specifies exactly ONE capability
+  - **Verifiability**: Each requirement is testable through a single procedure
+  - **Clarity**: Precise language, avoiding vague terms
+  - **Traceability**: Automatic parent-child linking
+  
+  Generated requirements use "shall" statements and follow the pattern:
+  "The [system/component] shall [action/constraint] [value] [unit] [condition]"
+</Accordion>
+
+<Accordion icon="check" title="Step 3: Review and Refine">
+  Review generated requirements:
+  1. Edit text inline for clarification
+  2. Adjust classification level if needed
+  3. Add additional constraints or conditions
+  4. Verify traceability links are correct
+  5. Save to project database
+</Accordion>
+
+</AccordionGroup>
+
+### Elevating to Parent Requirements
+
+For bottom-up consolidation:
+
+1. Select lower-level requirements
+2. Choose **Elevate to Parent**
+3. Saphira generates a higher-level requirement that encompasses selected children
+4. Review and adjust the parent requirement
+5. Traceability links are automatically created
+
+## Automotive Safety Refinement
+
+For automotive projects following ISO 26262, Saphira supports the complete safety concept hierarchy:
+
+<AccordionGroup>
+
+<Accordion icon="exclamation-triangle" title="Hazard → Safety Goal">
+  From HARA hazards, generate Safety Goals:
+  - One Safety Goal per unique hazardous event
+  - Atomic statements (no "or"/"and" alternatives)
+  - ASIL inheritance from hazards
+  - Clear safety objectives
+</Accordion>
+
+<Accordion icon="shield-halved" title="Safety Goal → Functional Safety Requirement (FSR)">
+  From Safety Goals, generate FSRs:
+  - High-level "System shall..." statements
+  - Technology-agnostic language
+  - Functional behavior focus
+  - INCOSE-compliant writing
+</Accordion>
+
+<Accordion icon="cogs" title="FSR → Technical Safety Requirement (TSR)">
+  From FSRs, generate detailed TSRs:
+  - Hardware requirements
+  - Software requirements
+  - Interface specifications
+  - Timing constraints
+  - Diagnostic coverage requirements
+</Accordion>
+
+<Accordion icon="bolt" title="TSR → Safety Mechanism (SM)">
+  Technical implementation of safety functions:
+  - Fault detection methods
+  - Safe state specifications
+  - Diagnostic coverage levels
+  - Response time requirements
+</Accordion>
+
+</AccordionGroup>
+
+## INCOSE Requirements Engineering
+
+All generated requirements follow INCOSE best practices:
+
+### Requirement Quality Rules
+
+| Principle | Description | Example |
+|-----------|-------------|---------|
+| **Atomicity** | One capability per requirement | ✅ "System shall detect obstacles" |
+| **Verifiability** | Testable with single procedure | ✅ "Response time shall be ≤100ms" |
+| **Clarity** | No ambiguous terms | ❌ Avoid "appropriate", "adequate" |
+| **Single Safe State** | One safe state per requirement | ✅ "System shall enter safe state A" |
+| **Shall Statements** | Active voice with "shall" | ✅ "The system shall provide..." |
+
+### INCOSE Linting
+
+Saphira provides automated requirement quality checking:
+
+1. **Input**: Enter or import requirement text
+2. **Classify**: Auto-suggest appropriate level
+3. **INCOSE Lint**: Quality check against rules
+4. **Trace**: Link to related artifacts
+5. **Export**: Generate compliant documentation
+
+## Traceability Management
+
+### Automatic Trace Suggestions
+
+When creating requirements, Saphira suggests traces to:
+- Related safety analyses (FMEA failure modes, HARA hazards)
+- Existing requirements at adjacent levels
+- Test cases and verification activities
+- Standards clauses
+
+### Traceability Matrix
+
+View and manage requirement relationships:
+- Parent-child decomposition trees
+- Cross-level traceability
+- Verification coverage analysis
+- Gap identification for missing traces
+
+## Integration with VAS Workflows
+
+Refined requirements integrate with:
+
+- **FMEA**: Requirements become focus elements for failure mode analysis
+- **HARA**: Requirements trace to hazards and control measures
+- **Test Generation**: Requirements drive test case creation
+- **Safety Case**: Requirements provide evidence for GSN goals
+- **Gap Analysis**: Requirements map to standards clauses
+

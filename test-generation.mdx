@@ -1,0 +1,339 @@
+---
+title: 'Auto-Generated Test Plans'
+description: 'Automatically generate test cases with full traceability to requirements, hazards, and safety analyses.'
+---
+
+## Automated Test Generation
+
+Saphira automatically generates comprehensive test plans that trace directly to requirements, safety analyses, and standards clauses—ensuring complete verification coverage for your safety-critical systems.
+
+### Test Generation Capabilities
+
+<AccordionGroup>
+
+<Accordion icon="check-double" title="Requirement-Based Tests">
+  Generate tests directly from requirements:
+  - Each requirement gets one or more test cases
+  - Tests verify specific requirement criteria
+  - Automatic traceability links established
+  - Coverage tracking for all requirements
+</Accordion>
+
+<Accordion icon="shield-halved" title="Safety Analysis Tests">
+  Generate tests from safety artifacts:
+  - **HARA Tests**: Verify hazard mitigations
+  - **FMEA Tests**: Verify failure mode detection/prevention
+  - **TARA Tests**: Verify cybersecurity controls
+  - **FTA Tests**: Verify fault handling
+</Accordion>
+
+<Accordion icon="book" title="Standards-Based Tests">
+  Generate tests from standards clauses:
+  - Tests aligned with verification methods
+  - Acceptance criteria from standards
+  - Evidence requirements identified
+  - Compliance demonstration support
+</Accordion>
+
+</AccordionGroup>
+
+## Test Case Structure
+
+### Generated Test Case Fields
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| **Test Case ID** | Unique identifier | TC-REQ-001-01 |
+| **Test Objective** | What the test verifies | Verify emergency stop response time |
+| **Test Method** | Type of testing | Hardware-in-the-loop (HIL) |
+| **Test Conditions** | Specific test setup | Normal operation, 25°C ambient |
+| **Expected Results** | Pass criteria | Stop achieved within 500ms |
+| **Test Level** | Unit/Integration/System | System |
+| **Requirement ID** | Traced requirement | REQ-SAFETY-001 |
+| **ASIL Level** | Safety classification | ASIL C |
+
+## Test Generation Workflow
+
+<AccordionGroup>
+
+<Accordion icon="1" title="Select Source Artifacts">
+  Choose what to generate tests from:
+  - Individual requirements
+  - Requirement groups by type
+  - Control measures from HARA
+  - Safety functions
+  - Standards clauses
+</Accordion>
+
+<Accordion icon="2" title="Configure Test Parameters">
+  Specify test generation options:
+  - Target test level (Unit, Integration, System, Acceptance)
+  - Test methods to include (Analysis, Review, Simulation, HIL, Physical)
+  - Industry-specific frameworks
+  - Custom test templates
+</Accordion>
+
+<Accordion icon="3" title="Generate Test Plans">
+  AI generates comprehensive tests:
+  - Detailed test procedures
+  - Expected results with acceptance criteria
+  - Required equipment list
+  - Estimated duration
+  - Safety considerations
+</Accordion>
+
+<Accordion icon="4" title="Review and Refine">
+  Edit generated tests:
+  - Adjust test procedures
+  - Modify acceptance criteria
+  - Add specific parameters
+  - Update traceability links
+</Accordion>
+
+<Accordion icon="5" title="Export and Execute">
+  Generate test documentation:
+  - Test plan documents (PDF)
+  - Test case spreadsheets (Excel)
+  - Code templates for automated testing
+  - Integration with test management tools
+</Accordion>
+
+</AccordionGroup>
+
+## Test Traceability
+
+### Traceability Matrix
+
+Saphira maintains complete traceability between:
+
+```
+Requirements ← → Test Cases ← → Test Results
+      ↑                              ↓
+Safety Analyses              Evidence Documents
+      ↑                              ↓
+   Hazards              Standards Compliance
+```
+
+### Traceability Features
+
+<AccordionGroup>
+
+<Accordion icon="link" title="Automatic Link Suggestions">
+  When generating tests, Saphira suggests links to:
+  - Related FMEA failure modes
+  - HARA hazards and control measures
+  - Parent/child requirements
+  - Applicable standards clauses
+</Accordion>
+
+<Accordion icon="chart-gantt" title="Coverage Analysis">
+  Track verification coverage:
+  - Requirements with/without tests
+  - Safety functions test coverage
+  - Standards clause verification status
+  - Gap identification and recommendations
+</Accordion>
+
+<Accordion icon="diagram-project" title="Impact Analysis">
+  When requirements change:
+  - Identify affected test cases
+  - Highlight tests needing updates
+  - Track test validity status
+  - Maintain audit trail
+</Accordion>
+
+</AccordionGroup>
+
+## Test Methods by Level
+
+### Multi-Level Testing Support
+
+<AccordionGroup>
+
+<Accordion icon="code" title="Unit Testing">
+  Component-level verification:
+  - Individual function tests
+  - Module interface tests
+  - Code coverage requirements
+  - Static analysis integration
+  
+  Generates code templates for:
+  - Python (pytest)
+  - C/C++ (Google Test)
+  - LabVIEW
+  - MATLAB/Simulink
+</Accordion>
+
+<Accordion icon="puzzle-piece" title="Integration Testing">
+  Subsystem interface verification:
+  - Component interaction tests
+  - Data flow verification
+  - Protocol conformance tests
+  - Timing and synchronization tests
+</Accordion>
+
+<Accordion icon="cube" title="System Testing">
+  Complete system verification:
+  - End-to-end functional tests
+  - Performance validation
+  - Environmental testing
+  - EMC and compliance tests
+</Accordion>
+
+<Accordion icon="robot" title="HIL/SIL Testing">
+  Simulation-based verification:
+  - Model-in-the-loop (MIL)
+  - Software-in-the-loop (SIL)
+  - Hardware-in-the-loop (HIL)
+  - Fault injection tests
+</Accordion>
+
+</AccordionGroup>
+
+## Industry-Specific Testing
+
+### Automotive (ISO 26262)
+
+<AccordionGroup>
+
+<Accordion icon="car" title="ASIL-Based Testing">
+  Tests aligned with ASIL requirements:
+  - Method selection per ISO 26262-8
+  - Independence requirements
+  - Diagnostic coverage verification
+  - Fault handling tests
+</Accordion>
+
+<Accordion icon="bolt" title="Safety Function Tests">
+  Verify safety mechanisms:
+  - Safe state transition tests
+  - Fault detection time tests
+  - Diagnostic coverage tests
+  - Degraded mode tests
+</Accordion>
+
+</AccordionGroup>
+
+### Industrial (ISO 13849)
+
+<AccordionGroup>
+
+<Accordion icon="industry" title="Performance Level Verification">
+  Tests for PL achievement:
+  - Category validation tests
+  - MTTFd verification
+  - DCavg calculation verification
+  - CCF measure validation
+</Accordion>
+
+<Accordion icon="shield-halved" title="Safety Function Tests">
+  Control system testing:
+  - Emergency stop tests
+  - Guard interlock tests
+  - Two-hand control tests
+  - Safety relay tests
+</Accordion>
+
+</AccordionGroup>
+
+### IEC 61508 Systems
+
+<AccordionGroup>
+
+<Accordion icon="gauge-high" title="SIL Verification Tests">
+  Tests for SIL achievement:
+  - PFH/PFD calculation verification
+  - Hardware fault tolerance tests
+  - Diagnostic coverage tests
+  - Systematic capability verification
+</Accordion>
+
+</AccordionGroup>
+
+## Code Template Generation
+
+### Executable Test Templates
+
+Saphira generates runnable test code:
+
+```python
+# Generated test case for REQ-SAFETY-001
+def test_emergency_stop_response_time():
+    """
+    Test Objective: Verify emergency stop achieves safe state within 500ms
+    Requirement: REQ-SAFETY-001
+    Test Level: System
+    ASIL: C
+    """
+    # Test setup
+    system = initialize_system()
+    
+    # Preconditions
+    assert system.state == OperatingState.NORMAL
+    
+    # Test execution
+    start_time = time.perf_counter()
+    system.trigger_emergency_stop()
+    
+    # Wait for safe state
+    while system.state != SafeState.STOPPED:
+        if time.perf_counter() - start_time > 0.6:  # 600ms timeout
+            break
+    
+    response_time = time.perf_counter() - start_time
+    
+    # Assertions
+    assert system.state == SafeState.STOPPED
+    assert response_time <= 0.500, f"Response time {response_time}s exceeds 500ms limit"
+```
+
+## Test Results Management
+
+### Recording Test Results
+
+<AccordionGroup>
+
+<Accordion icon="check" title="Pass/Fail Recording">
+  Track test execution:
+  - Test status (Passed/Failed/Blocked/Not Run)
+  - Execution date and tester
+  - Actual vs expected results
+  - Deviation documentation
+</Accordion>
+
+<Accordion icon="file-arrow-up" title="Evidence Attachment">
+  Attach supporting evidence:
+  - Test logs and reports
+  - Screenshots and recordings
+  - Measurement data
+  - Third-party certifications
+</Accordion>
+
+<Accordion icon="chart-pie" title="Coverage Reporting">
+  Generate coverage metrics:
+  - Test execution status
+  - Pass rate by requirement
+  - Coverage by ASIL/PL level
+  - Gap analysis reports
+</Accordion>
+
+</AccordionGroup>
+
+## Export and Integration
+
+### Export Formats
+
+- **PDF**: Formatted test plan documents
+- **Excel**: Test case spreadsheets with traceability
+- **CSV**: Data for test management tools
+- **JSON**: API integration format
+
+### Tool Integration
+
+Saphira test plans integrate with:
+- Jira (test case import)
+- Azure DevOps (test plans)
+- Jama Connect (requirements traceability)
+- HP ALM / Quality Center
+- Custom CI/CD pipelines
+

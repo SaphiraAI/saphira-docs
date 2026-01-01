@@ -1,0 +1,415 @@
+---
+title: 'FMEA Workflow'
+description: 'AI-assisted Failure Mode and Effects Analysis with automatic APN/RPN calculation and comprehensive risk assessment.'
+---
+
+## FMEA Workflow Overview
+
+Saphira's FMEA Workflow provides a guided, four-phase process for conducting comprehensive Failure Mode and Effects Analysis with AI-assisted failure mode generation, automatic risk priority calculations, and architecture-aware context.
+
+Access the FMEA Workflow from the **Dashboard** by clicking **Run Safety Analysis** → **FMEA**, or directly navigate to the **FMEA** tab.
+
+## Workflow Phases
+
+The FMEA Workflow consists of four sequential phases:
+
+<img src="/images/fmea-workflow-overview.png" alt="FMEA Workflow Overview" />
+
+<Steps>
+  <Step title="Reference Documents">
+    Upload existing FMEA spreadsheets, specifications, or reference material
+  </Step>
+  <Step title="Item Selection">
+    Select or create systems, subsystems, and components for analysis
+  </Step>
+  <Step title="FMEA Configuration">
+    Choose template type and configure columns for generation
+  </Step>
+  <Step title="FMEA Generation">
+    Generate failure modes with AI assistance and review results
+  </Step>
+</Steps>
+
+---
+
+## Phase 1: Reference Documents
+
+Upload existing documentation to enrich the FMEA generation with context.
+
+<Accordion icon="upload" title="Upload Reference Documents">
+  **Purpose**: Provide context and extract existing data to inform failure mode generation.
+  
+  **Supported Uploads**:
+  - **Existing FMEA Spreadsheets**: Import past FMEA data to build upon
+  - **Technical Specifications**: System specs for architecture context
+  - **Item Definitions**: System/component definitions
+  - **Architecture Diagrams**: Visual system structure
+  
+  **Upload Types**:
+  - **Item Definitions**: Documents describing system structure
+  - **Past FMEA**: Existing FMEA spreadsheets to extract and continue
+  
+  Documents auto-populate systems and components, providing architecture context for AI-assisted generation.
+</Accordion>
+
+### Extraction Options
+
+<CardGroup cols={2}>
+  <Card title="Extract Item Definitions" icon="cube">
+    Upload system specifications to extract:
+    - System hierarchy
+    - Component lists
+    - Interfaces and connections
+    - Operating modes
+  </Card>
+  <Card title="Extract Past FMEA" icon="table">
+    Upload existing FMEA to extract:
+    - Previous failure modes
+    - Historical S/O/D ratings
+    - Existing controls
+    - Action items
+  </Card>
+</CardGroup>
+
+---
+
+## Phase 2: Item Selection
+
+Select or create the items to analyze. Items are organized hierarchically.
+
+<Accordion icon="database" title="Select Analysis Items">
+  **Hierarchy Levels**:
+  - **System**: Top-level system (e.g., "Brake Control System")
+  - **Subsystem**: Major subsystems (e.g., "Hydraulic Unit", "ECU")
+  - **Sub-subsystem**: Lower-level groupings
+  - **Component**: Individual components (e.g., "Pressure Sensor", "Valve")
+  
+  **Item Selector Features**:
+  - View all items from project data
+  - Filter by hierarchy level
+  - Search by name
+  - Create new items inline
+  - Items extracted from documents appear here automatically
+</Accordion>
+
+### Item Context
+
+When you select an item, Saphira loads its context:
+- **Function**: What the item does
+- **Interfaces**: Connections to other items
+- **Operating Modes**: Normal, maintenance, degraded states
+- **System Boundary**: Scope of analysis
+
+This context informs AI-generated failure modes with architecture-aware suggestions.
+
+---
+
+## Phase 3: FMEA Configuration
+
+Configure the FMEA template and columns for your analysis.
+
+### FMEA Templates
+
+<AccordionGroup>
+
+<Accordion icon="calculator" title="FMEA-RPN (Risk Priority Number)">
+  Standard FMEA with RPN calculation.
+  
+  **Columns**:
+  | Column | Type | Description |
+  |--------|------|-------------|
+  | Component | Text | Component being analyzed |
+  | Function | Text | Function of the component |
+  | Failure Mode | Text | How the component can fail |
+  | Failure Effect | Text | Impact of the failure |
+  | Failure Cause | Text | Root cause of failure |
+  | Severity (S) | 1-10 | Impact rating |
+  | Occurrence (O) | 1-10 | Likelihood rating |
+  | Detection (D) | 1-10 | Detection capability |
+  | **RPN** | Calculated | S × O × D (1-1000) |
+  | Actions | Text | Recommended actions |
+</Accordion>
+
+<Accordion icon="chart-line" title="FMEA-APN (Action Priority Number)">
+  Modern FMEA approach per AIAG-VDA Handbook.
+  
+  **Columns**:
+  Same as FMEA-RPN but with:
+  | Column | Type | Description |
+  |--------|------|-------------|
+  | **APN** | Calculated | Action Priority Number |
+  
+  APN provides improved action prioritization over traditional RPN.
+</Accordion>
+
+<Accordion icon="gauge-high" title="FMECA (Criticality Analysis)">
+  Extended FMEA with criticality analysis per MIL-STD-1629A.
+  
+  **Additional Columns**:
+  | Column | Type | Description |
+  |--------|------|-------------|
+  | **Criticality Index** | Number | Quantitative criticality measure |
+  | RPN | Calculated | Risk Priority Number |
+</Accordion>
+
+<Accordion icon="microchip" title="FMEDA (Diagnostic Analysis)">
+  Hardware-focused FMEA for functional safety (IEC 61508 / ISO 26262).
+  
+  **Columns**:
+  | Column | Type | Description |
+  |--------|------|-------------|
+  | Component | Text | Hardware component |
+  | Failure Mode | Text | Failure mode description |
+  | Failure Rate | Number | λ (failure rate) |
+  | Failure Mode Distribution | Number | Distribution percentage |
+  | System Level Effect | Text | Effect at system level |
+  | Safety Effect | Text | Safety impact |
+  | **Diagnostic Coverage** | Number | DC percentage |
+  | **Safe Failure Fraction** | Number | SFF calculation |
+  | SIL Level | Text | Achieved SIL |
+  
+  Used for PFH/PFD calculations and architectural constraints verification.
+</Accordion>
+
+<Accordion icon="shield-halved" title="Insurer FMEA Templates">
+  Extended templates with insurance/loss assessment fields.
+  
+  **Additional Columns**:
+  | Column | Type | Description |
+  |--------|------|-------------|
+  | Estimated Loss (USD) | Number | Financial loss estimate |
+  | Is Catastrophic Loss | Boolean | Catastrophic flag |
+  | Loss Type | Dropdown | Operational, Safety, Reputation, Regulatory, Financial, Environmental |
+  | Uniqueness Score | 1-5 | Uniqueness rating |
+  | LP Score | Number | Loss Probability score |
+  | Is Insurer Flagged | Boolean | Insurer attention flag |
+  
+  Available for: Insurer FMEA-RPN, Insurer FMEA-APN, Insurer FMECA
+</Accordion>
+
+</AccordionGroup>
+
+### Configuration Options
+
+<AccordionGroup>
+
+<Accordion icon="sliders" title="Column Selection">
+  - Select which columns to include in generation
+  - Add custom columns with name and type
+  - Reorder columns as needed
+  - Toggle columns on/off
+</Accordion>
+
+<Accordion icon="list-ol" title="Generation Settings">
+  - **Max Failure Modes**: Number to generate per component (default: 5)
+  - **Additional Instructions**: Custom guidance for AI generation
+  - **Standards Context**: Select applicable standards (ISO 26262, IEC 61508, etc.)
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Phase 4: FMEA Generation
+
+Generate failure modes with AI assistance using your configuration.
+
+### Generation Process
+
+<Steps>
+  <Step title="Click Generate">
+    Start generation with the "Generate Failure Modes" button
+  </Step>
+  <Step title="AI Analyzes Context">
+    Saphira analyzes:
+    - Selected component/system
+    - Architecture relationships
+    - Reference documents
+    - Standards context
+  </Step>
+  <Step title="Failure Modes Stream In">
+    Results appear in real-time as they're generated
+  </Step>
+  <Step title="Review and Edit">
+    - Edit any cell inline
+    - Adjust S/O/D ratings
+    - RPN/APN auto-recalculates
+    - Add recommended actions
+  </Step>
+</Steps>
+
+### Generated Failure Mode Fields
+
+For each failure mode, Saphira generates:
+
+<AccordionGroup>
+
+<Accordion icon="function" title="System Function">
+  **Format**: "Provide [function description] ([Component Path])"
+  
+  **Example**: "Provide stable power to ECU electronics (Power Supply → Protection & Filtering → DC-DC)"
+  
+  Identifies the function and its location in the system architecture.
+</Accordion>
+
+<Accordion icon="exclamation-triangle" title="Failure Mode">
+  Technical description of how the component/system fails.
+  
+  **Example**: "Loss of ECU supply voltage during operation"
+  
+  Specific and technical—avoids generic descriptions.
+</Accordion>
+
+<Accordion icon="arrows-split-up-and-left" title="System / Vehicle Effect">
+  Cascading effects traced through the system.
+  
+  **Format**: "[Local effect] → [Component effect] → [System effect] → [Vehicle effect]"
+  
+  **Example**: "ECU resets or shuts down → loss of actuator control → possible unexpected torque/braking behavior"
+</Accordion>
+
+<Accordion icon="magnifying-glass" title="Likely Cause(s)">
+  Root cause or failure mechanism with multiple potential causes.
+  
+  **Example**: "Over-current or short on load side, over-temperature of DC-DC, connector looseness, wiring fault"
+</Accordion>
+
+<Accordion icon="shield-check" title="Current Prevention / Detection Controls">
+  Existing controls, diagnostics, and safeguards.
+  
+  **Example**: "Input fuse, reverse polarity & over-voltage protection, DC-DC thermal shutdown, vehicle power rail monitoring, diagnostic trouble code (DTC) on undervoltage"
+</Accordion>
+
+<Accordion icon="star" title="Severity / Occurrence / Detection">
+  **Severity (S)**: 1-10 based on consequences
+  - 1 = No effect
+  - 10 = Catastrophic / life-threatening
+  
+  **Occurrence (O)**: 1-10 based on likelihood
+  - 1 = Extremely unlikely
+  - 10 = Almost certain
+  
+  **Detection (D)**: 1-10 based on detection capability
+  - 1 = Almost certain detection
+  - 10 = No detection method
+  
+  Each rating includes justification.
+</Accordion>
+
+<Accordion icon="calculator" title="RPN / APN Calculation">
+  **RPN = S × O × D** (Range: 1-1000)
+  
+  Higher RPN indicates higher risk priority.
+  
+  Saphira highlights high-priority items (RPN > 100) for action.
+</Accordion>
+
+<Accordion icon="list-check" title="Recommended Actions">
+  Specific actions to reduce risk:
+  - Reduce occurrence (design changes)
+  - Improve detection (add diagnostics)
+  - Mitigate severity (add safeguards)
+  
+  **Example**: "Implement redundant communication path, add bus-off recovery strategy, enhance network diagnostics"
+</Accordion>
+
+</AccordionGroup>
+
+### Review Features
+
+<CardGroup cols={2}>
+  <Card title="Inline Editing" icon="pen-to-square">
+    Click any cell to edit. Changes auto-save and RPN recalculates.
+  </Card>
+  <Card title="Diff Highlighting" icon="code-compare">
+    New and changed items are highlighted for easy review.
+  </Card>
+  <Card title="Component Grouping" icon="layer-group">
+    Failure modes grouped by component with expandable sections.
+  </Card>
+  <Card title="FMEA Assistant" icon="robot">
+    AI chat assistant for guidance on ratings and actions.
+  </Card>
+</CardGroup>
+
+---
+
+## FMEA Metrics Dashboard
+
+Track your FMEA progress with real-time metrics:
+
+| Metric | Description |
+|--------|-------------|
+| Total Failure Modes | Count of all failure modes |
+| Components with FMEA | Components analyzed |
+| Components without FMEA | Gap identification |
+| Avg Failure Modes/Component | Coverage depth |
+| Failure Modes by System | Distribution view |
+
+---
+
+## Completeness Analysis
+
+Click **Analyze Completeness** to get AI-powered assessment:
+
+- Missing failure mode categories
+- Coverage gaps by component
+- Recommended additional analyses
+- Standards compliance check
+
+---
+
+## Export Options
+
+Export your FMEA in multiple formats:
+
+<CardGroup cols={3}>
+  <Card title="Excel (XLSX)" icon="file-excel">
+    Full FMEA worksheet with all columns and formatting
+  </Card>
+  <Card title="CSV" icon="file-csv">
+    Data export for integration with other tools
+  </Card>
+  <Card title="PDF Report" icon="file-pdf">
+    Formatted report for documentation
+  </Card>
+</CardGroup>
+
+---
+
+## Integration with Safety Workflows
+
+FMEA failure modes trace to other Saphira artifacts:
+
+- **Requirements**: Link failure modes to requirements they inform
+- **HARA**: Connect failure modes to hazards they could cause
+- **Test Cases**: Generate verification tests for detection controls
+- **Safety Functions**: Link to safety mechanisms that mitigate failures
+- **GSN Safety Case**: Failure mode coverage as evidence
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+
+<Accordion icon="lightbulb" title="Start with Architecture">
+  Upload architecture diagrams and item definitions first. This provides context for more accurate failure mode generation.
+</Accordion>
+
+<Accordion icon="layer-group" title="Work Hierarchically">
+  Start at system level, then drill down to subsystems and components. System-level failure modes inform component-level analysis.
+</Accordion>
+
+<Accordion icon="comments" title="Use the FMEA Assistant">
+  The AI assistant can help with:
+  - Severity rating calibration
+  - Detection control suggestions
+  - Action recommendation refinement
+</Accordion>
+
+<Accordion icon="refresh" title="Iterate with Feedback">
+  Review generated failure modes and provide feedback. The AI learns from your edits to improve future generations.
+</Accordion>
+
+</AccordionGroup>

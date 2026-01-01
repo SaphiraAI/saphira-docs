@@ -1,0 +1,804 @@
+---
+title: 'Clause-Level Mapping & Audit Reports'
+description: 'Comprehensive standards clause mapping with audit-ready compliance reports. Access to IEC 61508, UL 4600, ISO 12100, ISO 13849, and more.'
+---
+
+## Compliance Tracker Overview
+
+Saphira's Compliance Tracker provides a structured, step-by-step workflow for mapping your project documentation against safety standards clauses—generating audit-ready compliance reports that demonstrate regulatory conformance.
+
+**Entry Point**: `Dashboard → Compliance Tracker` or dedicated Compliance Tracker application
+
+### Workflow Navigation
+
+The Compliance Tracker uses a sidebar-based navigation with five main sections:
+
+| Tab | Purpose | Key Actions |
+|-----|---------|-------------|
+| **Dashboard** | Overview & statistics | View compliance progress, quick actions |
+| **Survey** | Applicability assessment | Answer questions to filter relevant clauses |
+| **Clauses** | Clause-by-clause compliance | Review, document, test each clause |
+| **Documents** | Centralized evidence management | Upload mandatory ISO documents |
+| **Tests** | Test execution & evidence | Track test status and upload evidence |
+| **Report** | Audit-ready exports | Generate PDF, CSV, JSON reports |
+
+---
+
+## Phase 1: Dashboard Overview
+
+The Dashboard provides an executive summary of your compliance status.
+
+### Compliance Statistics
+
+<AccordionGroup>
+
+<Accordion icon="chart-pie" title="Progress Metrics">
+  Real-time statistics showing:
+  
+  - **Compliance Percentage**: Overall progress (e.g., 65%)
+  - **Compliant**: Clauses fully satisfied with evidence
+  - **In Progress**: Clauses currently being addressed
+  - **Pending**: Clauses awaiting review
+  - **Not Started**: Clauses not yet addressed
+  
+  Progress bar visualizes completion status at a glance.
+</Accordion>
+
+<Accordion icon="list-check" title="Quick Actions">
+  From the dashboard:
+  
+  - **Continue Survey**: Resume applicability questionnaire
+  - **View Pending Clauses**: Jump to incomplete clauses
+  - **Generate Report**: Quick export of current status
+  - **Ask an Expert**: Get guidance on complex clauses
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Phase 2: Applicability Survey
+
+The Survey phase helps you identify which clauses apply to your specific product or system, reducing compliance scope to only relevant requirements.
+
+### How the Survey Works
+
+<Steps>
+
+<Step title="Load Survey Scenario (Optional)">
+  Pre-configured scenarios for common product types:
+  - Industrial robot applications
+  - Autonomous mobile robots (AMRs)
+  - Agricultural machinery
+  - Custom product type
+  
+  Loading a scenario pre-fills answers based on typical configurations.
+</Step>
+
+<Step title="Answer Applicability Questions">
+  For each question:
+  
+  1. Read the question (e.g., "Does your truck operate in outdoor environments?")
+  2. Click **Yes** or **No**
+  3. Related clauses are automatically shown/hidden based on your answer
+  
+  Each question displays affected clause IDs (e.g., "Affects 12 clauses: 4.1, 4.2.1, 4.3...")
+</Step>
+
+<Step title="Review Survey Impact">
+  Survey Impact Statistics card shows:
+  
+  | Metric | Description |
+  |--------|-------------|
+  | **Questions Answered** | X/Y questions complete (e.g., 15/20) |
+  | **Applicable Clauses** | Number of clauses you must address |
+  | **Non-Applicable** | Clauses hidden based on survey |
+  | **Total Clauses** | Full count in the standard |
+</Step>
+
+<Step title="Complete Survey">
+  Click **Complete Survey →** to proceed to clause assessment.
+  
+  You can return to modify survey answers at any time—clause filtering updates automatically.
+</Step>
+
+</Steps>
+
+### Survey Answer Tags
+
+Each survey question is linked to tags that match clause relevance:
+- `outdoor_operation` → outdoor-related clauses
+- `navigation_sensor` → sensor-specific requirements
+- `human_interaction` → human-machine interface clauses
+- `baseline` → always-applicable core requirements
+
+---
+
+## Phase 3: Clause-by-Clause Compliance
+
+The Clauses tab is where you manage compliance for each applicable requirement.
+
+### Clause List View
+
+<AccordionGroup>
+
+<Accordion icon="filter" title="Advanced Filtering">
+  Filter clauses using multiple criteria:
+  
+  **Relevance Filter**:
+  - All Clauses
+  - Relevant Only (survey-filtered)
+  - Hidden by Survey
+  - Marked Irrelevant (manual override)
+  
+  **Compliance Status**:
+  - Not Started
+  - In Progress
+  - Pending / Pending Review
+  - Compliant
+  
+  **Document Status**:
+  - All Documents
+  - All Uploaded (complete)
+  - Missing Documents
+  - No Documents Required
+  
+  **Questions Status**:
+  - All Answered
+  - Has Unanswered
+  - Has Questions
+</Accordion>
+
+<Accordion icon="link" title="Shareable Links">
+  Each clause has a shareable URL:
+  
+  1. Click the 🔗 link icon on any clause
+  2. URL is copied to clipboard
+  3. Share with team members for direct access
+  
+  Format: `?tab=clauses&clause=5.2.1`
+</Accordion>
+
+</AccordionGroup>
+
+### Clause Detail View
+
+Clicking a clause opens its full detail page with multiple tabs:
+
+#### Documents Tab
+
+<AccordionGroup>
+
+<Accordion icon="file-lines" title="Mandatory ISO Documents">
+  Shows documents required for this specific clause:
+  
+  For each linked document:
+  - **Document Name**: e.g., "Verification Report"
+  - **Purpose**: Why this document is needed
+  - **Related Clauses**: All clauses this document covers
+  - **Status**: Uploaded ✓ or Pending
+  
+  Actions:
+  - **Upload**: Add document file
+  - **Replace**: Update with newer version
+  - **Remove**: Delete uploaded document
+</Accordion>
+
+<Accordion icon="keyboard" title="Text Entry Option">
+  For some requirements, you can provide text instead of documents:
+  
+  1. Click ✏️ text entry button
+  2. Enter documentation details, reference numbers, or explanations
+  3. Click **Done** to save
+  
+  Text entries count as evidence when file upload isn't practical.
+</Accordion>
+
+</AccordionGroup>
+
+#### Tests Tab
+
+<AccordionGroup>
+
+<Accordion icon="flask-vial" title="Test Execution">
+  For each test defined in the clause:
+  
+  **Test Information**:
+  - Test name and description
+  - Pass criteria (specific acceptance requirements)
+  
+  **Status Selection**:
+  - Not Started
+  - In Progress
+  - Passed
+  - Failed
+  
+  **Test Results**: Enter observations when passed/failed
+</Accordion>
+
+<Accordion icon="paperclip" title="Test Evidence Upload">
+  Attach evidence files to each test:
+  
+  1. Click **Add Evidence**
+  2. Optionally add description
+  3. Choose file(s) to upload
+  4. Evidence is linked to that specific test
+  
+  Evidence list shows:
+  - File name with 📎 icon
+  - Upload date
+  - Optional description
+  - Remove (✕) option
+</Accordion>
+
+</AccordionGroup>
+
+#### Questions Tab
+
+<AccordionGroup>
+
+<Accordion icon="circle-question" title="Verification Questions">
+  Answer clause-specific verification questions:
+  
+  **Question Types**:
+  - **Boolean**: Yes/No buttons
+  - **Text**: Free-form text entry
+  - **Dropdown**: Select from predefined options
+  
+  Answers are saved automatically and displayed in a confirmation box.
+</Accordion>
+
+</AccordionGroup>
+
+#### Requirements Tab
+
+<AccordionGroup>
+
+<Accordion icon="clipboard-check" title="Verification Methods">
+  Shows required verification methods:
+  
+  | Code | Method | Description |
+  |------|--------|-------------|
+  | **D** | Design Review | Design analysis and documentation review |
+  | **I** | Inspection | Visual or physical inspection |
+  | **M** | Measurement | Quantitative measurement against criteria |
+  | **F** | Functional Test | Dynamic testing of functionality |
+  | **C** | Calculation | Mathematical analysis or simulation |
+</Accordion>
+
+<Accordion icon="book" title="Referenced Standards">
+  Lists other standards cross-referenced by this clause:
+  - IEC 61508-1, IEC 61508-2
+  - ISO 12100
+  - ISO 13849-1, ISO 13849-2
+  - And more...
+</Accordion>
+
+</AccordionGroup>
+
+#### References Tab
+
+<AccordionGroup>
+
+<Accordion icon="bookmark" title="Annex Links">
+  References to standard annexes containing:
+  - Detailed methodology
+  - Example calculations
+  - Informative guidance
+</Accordion>
+
+<Accordion icon="table" title="Table & Figure References">
+  Tables and figures referenced by the clause:
+  - Table ID and title
+  - Purpose description
+  - Figure illustrations
+</Accordion>
+
+</AccordionGroup>
+
+### Clause Status Management
+
+<AccordionGroup>
+
+<Accordion icon="circle-check" title="Compliance Status">
+  Update clause status via dropdown:
+  
+  | Status | When to Use |
+  |--------|-------------|
+  | **Not Started** | No work begun |
+  | **In Progress** | Actively collecting evidence |
+  | **Pending** | Evidence submitted, awaiting action |
+  | **Pending Review** | Ready for compliance review |
+  | **Compliant** | Fully satisfied with evidence |
+</Accordion>
+
+<Accordion icon="ban" title="Mark as Irrelevant">
+  Manual override for clauses that don't apply:
+  
+  1. Click **Mark as Irrelevant** button
+  2. Clause is visually dimmed and excluded from statistics
+  3. Click **Mark as Relevant** to reverse
+  
+  Use when survey filtering doesn't capture specific exceptions.
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Phase 4: Document Management
+
+The Documents tab provides centralized management of all mandatory ISO documents.
+
+### Document Requirements Master List
+
+<AccordionGroup>
+
+<Accordion icon="folder-open" title="Mandatory Documents">
+  ISO 3691-4 example requires 19 core documents:
+  
+  | # | Document | Related Clauses | Purpose |
+  |---|----------|-----------------|---------|
+  | 1 | Instruction Handbook / User Manual | 6.2, 6.2.1-6.2.3 | Safe operation info |
+  | 2 | Routine Service & Maintenance Manual | 6.2.4, 6.2.5 | Maintenance schedules |
+  | 3 | Verification Report | 5, Annex E | Safety verification |
+  | 4 | Test Reports | 5.2, 5.3, 5.4 | Test results |
+  | 5 | Safety Validation (PL Verification) | 4.11, Table 3 | ISO 13849-1/-2 validation |
+  | 6 | Quality Control Documentation | 5.4.1 | Manufacturing QC |
+  | 7 | Operating Information Specifications | 6.2.5 | Load characteristics |
+  | 8 | Site Safety Guidance | 6.2.6 | Site-related safety |
+  | 9 | Floor/Ground Condition Spec | 6.2.7 | Surface requirements |
+  | 10 | Marking/Warning Sign Dossier | 6.3 | ISO 7010/15870 signs |
+  | ... | ... | ... | ... |
+</Accordion>
+
+<Accordion icon="chart-bar" title="Document Progress">
+  Header card shows:
+  
+  - **Uploaded**: Documents successfully uploaded
+  - **Pending**: Documents still required
+  - **Total Required**: Full document count
+  - **Progress Bar**: Visual completion percentage
+</Accordion>
+
+</AccordionGroup>
+
+### Document Table
+
+For each mandatory document:
+
+| Column | Description |
+|--------|-------------|
+| **#** | Document number |
+| **Document Name** | Official document title |
+| **Clause/Annex** | Clickable links to related clauses |
+| **Purpose** | Why document is required |
+| **Status** | Uploaded ✓ or Pending badge |
+| **Actions** | Upload / Replace / Remove buttons |
+
+### Document Actions
+
+- **Upload**: Click to select and upload document file
+- **Replace**: Update existing document with new version
+- **Remove**: Delete uploaded document
+- **View Clause**: Click clause ID to navigate to that clause
+
+---
+
+## Phase 5: Test Evidence Management
+
+The Tests tab provides a consolidated view of all tests across all clauses.
+
+### Test Progress Overview
+
+<AccordionGroup>
+
+<Accordion icon="gauge-high" title="Overall Test Completion">
+  Progress bar showing X / Y tests complete
+  
+  **Status Breakdown Grid**:
+  - **Passed**: Tests that met criteria (green)
+  - **In Progress**: Tests currently running (yellow)
+  - **Failed**: Tests that didn't meet criteria (red)
+  - **Not Started**: Tests not yet begun (gray)
+</Accordion>
+
+<Accordion icon="paperclip" title="Evidence Summary">
+  Total test evidence uploaded across all clauses.
+</Accordion>
+
+</AccordionGroup>
+
+### Tests by Clause
+
+For each clause with tests:
+
+<AccordionGroup>
+
+<Accordion icon="list" title="Clause Test Card">
+  - **Clause ID and Title**
+  - **Progress**: X of Y tests passed
+  - **Badge**: "✓ All Passed" or "X/Y"
+  
+  For each test within the clause:
+  - Test name and description
+  - Pass criteria in blue highlight box
+  - Status dropdown
+  - Result text area (when passed/failed)
+  - Evidence upload section
+</Accordion>
+
+<Accordion icon="arrow-right" title="Quick Navigation">
+  **View Clause Details →** link navigates to full clause page
+</Accordion>
+
+</AccordionGroup>
+
+### Action Required Alert
+
+When tests are incomplete:
+- Orange alert box showing pending test count
+- List of clauses with pending tests
+- **Go to Clauses to Complete Tests →** button
+
+---
+
+## Phase 6: Audit Reports
+
+The Report tab generates audit-ready documentation in multiple formats.
+
+### Report Export Options
+
+<CardGroup cols={3}>
+
+<Card title="PDF Report" icon="file-pdf">
+  Formatted document with:
+  - Executive summary
+  - Compliance statistics
+  - Clause-by-clause status
+  - Deep links to clauses
+  - Evidence references
+</Card>
+
+<Card title="CSV Report" icon="file-csv">
+  Spreadsheet-compatible:
+  - One row per clause
+  - All status columns
+  - Document counts
+  - Test results
+  - Links included
+</Card>
+
+<Card title="JSON Report" icon="file-code">
+  Structured data export:
+  - Complete clause data
+  - Survey answers
+  - Statistics object
+  - Machine-readable
+</Card>
+
+</CardGroup>
+
+### Report Contents
+
+<AccordionGroup>
+
+<Accordion icon="chart-pie" title="Executive Summary">
+  - Overall compliance percentage
+  - Clause count breakdown by status
+  - Document upload progress
+  - Test completion statistics
+</Accordion>
+
+<Accordion icon="table-cells" title="Clause Matrix">
+  Full compliance matrix including:
+  
+  | Field | Description |
+  |-------|-------------|
+  | Clause ID | Standard section reference |
+  | Title | Clause name |
+  | Status | Compliance status |
+  | Relevant | Yes/No based on survey |
+  | Documents | X/Y uploaded |
+  | Tests | X/Y passed |
+  | Questions | X/Y answered |
+  | Verification Methods | D/I/M/F/C codes |
+  | Referenced Standards | Cross-references |
+  | Link | Direct URL to clause |
+</Accordion>
+
+</AccordionGroup>
+
+### JSON Report Structure
+
+```json
+{
+  "generatedAt": "2026-01-01T12:00:00Z",
+  "standard": {
+    "id": "ISO_3691_4",
+    "title": "ISO 3691-4:2020"
+  },
+  "statistics": {
+    "totalClauses": 142,
+    "compliant": 98,
+    "inProgress": 20,
+    "pending": 16,
+    "notStarted": 8
+  },
+  "surveyAnswers": [
+    {
+      "id": "q1",
+      "question": "Does your truck operate outdoors?",
+      "answer": "Yes",
+      "tags": ["outdoor_operation"],
+      "related_clauses": ["4.3.1", "4.3.2"]
+    }
+  ],
+  "clauses": [
+    {
+      "id": "5.1.1",
+      "title": "General requirements",
+      "status": "Compliant",
+      "relevant": true,
+      "markedIrrelevant": false,
+      "documentsRequired": 3,
+      "documentsUploaded": 3,
+      "testsPassed": 5,
+      "totalTests": 5,
+      "questionsAnswered": 2,
+      "totalQuestions": 2,
+      "verificationMethods": ["D", "I", "F"],
+      "referencedStandards": ["IEC 61508-1"],
+      "link": "https://app.saphira.ai/compliance?clause=5.1.1"
+    }
+  ],
+  "documents": {
+    "uploaded": 15,
+    "total": 19
+  }
+}
+```
+
+---
+
+## Supported Standards
+
+<AccordionGroup>
+
+<Accordion icon="bolt" title="IEC 61508 - Functional Safety">
+  Complete IEC 61508 series coverage:
+  - **IEC 61508-1**: General requirements
+  - **IEC 61508-2**: Hardware requirements
+  - **IEC 61508-3**: Software requirements
+  - **IEC 61508-4**: Definitions and abbreviations
+  - **IEC 61508-5**: Examples of methods
+  - **IEC 61508-6**: Guidelines on application
+  - **IEC 61508-7**: Overview of techniques and measures
+  
+  Features:
+  - SIL determination support
+  - PFH/PFD calculation tools
+  - Architectural constraints verification
+  - Lifecycle phase tracking
+</Accordion>
+
+<Accordion icon="robot" title="UL 4600 - Autonomous Products">
+  Comprehensive UL 4600 clause mapping:
+  - Safety case requirements
+  - ODD (Operational Design Domain) definition
+  - Risk assessment methodology
+  - Verification and validation
+  - Human-machine interaction
+  - Data recording requirements
+  - Cybersecurity considerations
+  
+  Features:
+  - Argument structure templates
+  - ODD completeness checking
+  - Safety performance metrics
+  - Field monitoring requirements
+</Accordion>
+
+<Accordion icon="triangle-exclamation" title="ISO 12100 - Safety of Machinery">
+  Complete risk assessment framework:
+  - Hazard identification methodology
+  - Risk estimation techniques
+  - Risk evaluation criteria
+  - Risk reduction strategies
+  - Protective measure hierarchy
+  - Documentation requirements
+  
+  Features:
+  - Risk graph method support
+  - Severity/Probability/Avoidance ratings
+  - Protective measure tracking
+  - Residual risk documentation
+</Accordion>
+
+<Accordion icon="shield-halved" title="ISO 13849 - Safety-Related Control Systems">
+  Complete ISO 13849-1 and ISO 13849-2 coverage:
+  - Performance Level (PL) determination
+  - Category selection
+  - MTTFd calculation
+  - DCavg assessment
+  - CCF scoring
+  - Validation requirements
+  
+  Features:
+  - Risk graph-based PLr determination
+  - SISTEMA integration support
+  - Category architecture validation
+  - PL verification calculations
+</Accordion>
+
+<Accordion icon="car" title="ISO 26262 - Automotive Functional Safety">
+  Complete automotive functional safety:
+  - ASIL determination
+  - Safety lifecycle management
+  - Hardware/software requirements
+  - Verification and validation
+  - Confirmation measures
+</Accordion>
+
+<Accordion icon="tractor" title="ISO 25119 - Agricultural Machinery">
+  Agricultural vehicle safety:
+  - AgPL determination
+  - Tractor/implement integration
+  - Agricultural-specific hazards
+  - Environmental considerations
+</Accordion>
+
+<Accordion icon="forklift" title="ISO 3691-4 - Driverless Industrial Trucks">
+  Automated guided vehicles (AGVs):
+  - Person detection requirements
+  - Stability and braking tests
+  - Operating zone definitions
+  - Safety-related control systems
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## AI-Powered Compliance Features
+
+### Automated Clause Assessment
+
+<AccordionGroup>
+
+<Accordion icon="brain" title="AI Document Analysis">
+  For each standards clause, Saphira:
+  
+  **Requirement Breakdown**:
+  - Identifies key requirement components
+  - Determines measurable criteria
+  - Identifies evidence types needed
+  - Maps dependencies on other clauses
+  
+  **Document Search**:
+  - Searches project documents for direct evidence
+  - Finds explicit compliance statements
+  - Locates relevant technical specifications
+  - Identifies test results and certifications
+  
+  **Compliance Assessment**:
+  - COMPLIANT: Clear evidence demonstrates full satisfaction
+  - PARTIALLY_COMPLIANT: Some evidence exists but gaps remain
+  - NON_COMPLIANT: Insufficient or no evidence found
+</Accordion>
+
+<Accordion icon="chart-line" title="Confidence Scoring">
+  Each assessment includes confidence rating (0.0-1.0) based on:
+  - Quality and specificity of evidence
+  - Completeness of requirement coverage
+  - Reliability and verifiability of documentation
+  - Direct vs. indirect evidence
+</Accordion>
+
+</AccordionGroup>
+
+### Gap Analysis & Todo Generation
+
+<AccordionGroup>
+
+<Accordion icon="magnifying-glass" title="Automatic Gap Detection">
+  For non-compliant or partially compliant clauses:
+  
+  | Field | Description |
+  |-------|-------------|
+  | **Gap Description** | Specific aspect not addressed |
+  | **Severity Level** | CRITICAL / HIGH / MEDIUM / LOW |
+  | **Missing Evidence** | Type of evidence needed |
+  | **Compliance Risk** | Regulatory or safety risk created |
+</Accordion>
+
+<Accordion icon="list-check" title="Actionable Todos">
+  Automatically generated from gaps:
+  
+  **Immediate Actions (0-2 weeks)**:
+  - Quick documentation updates
+  - Simple procedure modifications
+  - Evidence collection from existing sources
+  
+  **Short-term Actions (2-8 weeks)**:
+  - Document creation or updates
+  - Process improvements
+  - Testing or validation activities
+  
+  **Long-term Actions (2+ months)**:
+  - Design changes or modifications
+  - Major process overhauls
+  - Comprehensive validation activities
+</Accordion>
+
+</AccordionGroup>
+
+### Validation Agent
+
+<AccordionGroup>
+
+<Accordion icon="robot" title="LangChain/LangGraph Validation">
+  AI validation workflow:
+  
+  1. Retrieves relevant document context via RAG
+  2. Validates requirement against documentation
+  3. Scores compliance with configurable strictness
+  4. Generates detailed assessment with evidence links
+</Accordion>
+
+<Accordion icon="sliders" title="Matching Strictness">
+  Configure validation strictness (0-5):
+  
+  | Level | Mode | Behavior |
+  |-------|------|----------|
+  | 0-1 | Lenient | Accepts indirect evidence |
+  | 2-3 | Moderate | Requires clear relation |
+  | 4-5 | Strict | Demands explicit evidence |
+</Accordion>
+
+</AccordionGroup>
+
+---
+
+## Integration & Export
+
+### Export Formats
+
+| Format | Use Case | Contents |
+|--------|----------|----------|
+| **CSV** | Spreadsheet analysis | Compliance matrix, links |
+| **JSON** | System integration | Full structured data |
+| **PDF** | Audit submission | Formatted report |
+| **Excel** | Multi-sheet workbook | Analysis tabs |
+
+### Integration Capabilities
+
+Compliance data integrates with:
+- **GSN Safety Case**: Evidence nodes link to clause compliance
+- **Requirements Management**: Traceability to requirements
+- **FMEA Analysis**: Failure modes linked to safety clauses
+- **Certification Portals**: Export for TÜV, Intertek, Pilz
+
+---
+
+## Related Features
+
+<CardGroup cols={2}>
+
+<Card title="Document Extraction" icon="file-import" href="/document-extraction">
+  Extract requirements from standards documents
+</Card>
+
+<Card title="GSN Safety Case" icon="sitemap" href="/gsn-safety-case">
+  Build Goal-Strategy-Evidence chains
+</Card>
+
+<Card title="FMEA Analysis" icon="triangle-exclamation" href="/fmea-analysis">
+  Link failure modes to safety clauses
+</Card>
+
+<Card title="Test Generation" icon="flask-vial" href="/test-generation">
+  Generate tests from clause requirements
+</Card>
+
+</CardGroup>
