@@ -1,0 +1,367 @@
+---
+title: 'GSN Safety Case Generation'
+description: 'Goal Structuring Notation (GSN) safety case generation with complete Goal → Strategy → Evidence chains for regulatory acceptance.'
+---
+
+## GSN Safety Case Overview
+
+Saphira automatically generates Goal Structuring Notation (GSN) safety cases that demonstrate your system meets safety requirements through structured Goal → Strategy → Evidence chains—required for Proof of Validity (PoV) acceptance and regulatory approval.
+
+### GSN Node Types
+
+<AccordionGroup>
+
+<Accordion icon="bullseye" title="Goals (G)">
+  High-level safety claims to be demonstrated:
+  - Root goal: Overall system safety claim
+  - Sub-goals: Decomposed safety objectives
+  - Clear, measurable safety statements
+  
+  **Example**: "G1: The system is safe and reliable in all operational conditions"
+</Accordion>
+
+<Accordion icon="route" title="Strategies (S)">
+  How goals are argued to be satisfied:
+  - Argument approaches and methodologies
+  - Decomposition rationale
+  - Evidence grouping logic
+  
+  **Example**: "S1: Argue based on hazard analysis and mitigation coverage"
+</Accordion>
+
+<Accordion icon="lightbulb" title="Solutions (SOL)">
+  Specific evidence supporting the argument:
+  - Requirements that address safety
+  - Test results and analyses
+  - Design documentation
+  - Certification artifacts
+  
+  **Example**: "SOL1: REQ-SAFETY-001 - Emergency stop response ≤500ms"
+</Accordion>
+
+<Accordion icon="circle-question" title="Assumptions (A)">
+  Key assumptions underlying the safety argument:
+  - Operational assumptions
+  - Environmental assumptions
+  - User behavior assumptions
+  - System boundary assumptions
+  
+  **Example**: "A1: Operators are trained per procedure OPS-001"
+</Accordion>
+
+<Accordion icon="file-contract" title="Evidence (E)">
+  Types of evidence required to support claims:
+  - Test reports
+  - Analysis results
+  - Certifications
+  - Verification activities
+  
+  **Example**: "E1: HIL test report demonstrating fault detection"
+</Accordion>
+
+<Accordion icon="circle-info" title="Context (C)">
+  Contextual information for the argument:
+  - System description
+  - Operational domain
+  - Applicable standards
+  - Scope boundaries
+  
+  **Example**: "C1: Automotive brake system operating on public roads"
+</Accordion>
+
+</AccordionGroup>
+
+## Goal → Strategy → Evidence Chains
+
+### Complete Argument Structure
+
+Saphira builds complete argument chains from your project data:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    G1: Root Safety Goal                      │
+│  "The system is acceptably safe for its intended use"       │
+└─────────────────────────────────────────────────────────────┘
+                              │
+          ┌───────────────────┼───────────────────┐
+          ▼                   ▼                   ▼
+    ┌──────────┐        ┌──────────┐        ┌──────────┐
+    │ S1: Argue │        │ S2: Argue │        │ S3: Argue │
+    │ by hazard │        │ by design │        │ by V&V    │
+    │ coverage  │        │ controls  │        │ evidence  │
+    └──────────┘        └──────────┘        └──────────┘
+          │                   │                   │
+    ┌─────┴─────┐       ┌─────┴─────┐       ┌─────┴─────┐
+    ▼           ▼       ▼           ▼       ▼           ▼
+┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐
+│ SOL1  │ │ SOL2  │ │ SOL3  │ │ SOL4  │ │ E1    │ │ E2    │
+│ HAZ-1 │ │ HAZ-2 │ │ REQ-1 │ │ REQ-2 │ │ Test  │ │ Cert  │
+└───────┘ └───────┘ └───────┘ └───────┘ └───────┘ └───────┘
+```
+
+### Argument Strategies
+
+<AccordionGroup>
+
+<Accordion icon="shield-halved" title="Hazard Coverage Strategy">
+  Argue safety through hazard mitigation:
+  - All hazards identified
+  - Each hazard has mitigating controls
+  - Controls verified effective
+  - Residual risk acceptable
+</Accordion>
+
+<Accordion icon="cogs" title="Design Control Strategy">
+  Argue safety through design measures:
+  - Requirements address safety
+  - Design implements requirements
+  - Architecture provides redundancy
+  - Fault tolerance demonstrated
+</Accordion>
+
+<Accordion icon="check-double" title="Verification Strategy">
+  Argue safety through V&V evidence:
+  - Test plans cover safety requirements
+  - Tests executed successfully
+  - Independent verification performed
+  - Compliance demonstrated
+</Accordion>
+
+<Accordion icon="book" title="Standards Compliance Strategy">
+  Argue safety through standards adherence:
+  - Applicable standards identified
+  - Clauses addressed
+  - Evidence documented
+  - Conformity demonstrated
+</Accordion>
+
+</AccordionGroup>
+
+## GSN Generation Workflow
+
+### From Project Data
+
+<AccordionGroup>
+
+<Accordion icon="1" title="Step 1: Gather Project Artifacts">
+  Saphira collects your safety artifacts:
+  - Requirements database
+  - HARA hazards and controls
+  - FMEA failure modes
+  - Test results and evidence
+  - Standards compliance status
+</Accordion>
+
+<Accordion icon="2" title="Step 2: Generate GSN Structure">
+  AI generates the safety argument:
+  - Root goal from system description
+  - Strategies from analysis types
+  - Solutions from requirements
+  - Assumptions from project context
+  - Evidence links from test results
+</Accordion>
+
+<Accordion icon="3" title="Step 3: Review and Refine">
+  Edit the generated safety case:
+  - Adjust goal wording
+  - Add/remove strategies
+  - Link additional evidence
+  - Document assumptions
+  - Add contextual information
+</Accordion>
+
+<Accordion icon="4" title="Step 4: Validate Completeness">
+  Verify safety case integrity:
+  - All goals supported by strategies
+  - All strategies have solutions/evidence
+  - No orphan nodes
+  - Traceability complete
+  - Gaps identified
+</Accordion>
+
+<Accordion icon="5" title="Step 5: Export for Review">
+  Generate documentation:
+  - GSN diagram (visual)
+  - YAML/JSON structure
+  - PDF report
+  - Presentation format
+</Accordion>
+
+</AccordionGroup>
+
+### GSN Wizard
+
+For guided safety case creation:
+
+<AccordionGroup>
+
+<Accordion icon="wand-magic-sparkles" title="Answer-Driven Generation">
+  The GSN Wizard asks structured questions:
+  
+  **System Context**:
+  - System name and purpose
+  - Operational domain
+  - User types and assumptions
+  
+  **Hazard Identification**:
+  - Known hazards
+  - Mitigation strategies
+  - Risk assessment approach
+  
+  **Safety Requirements**:
+  - Safety function definitions
+  - Performance requirements
+  - Architectural elements
+  
+  **Verification Approach**:
+  - Verification methods
+  - Test coverage
+  - Evidence types
+  
+  **Standards Compliance**:
+  - Applicable standards
+  - Compliance status
+  - Certification targets
+</Accordion>
+
+<Accordion icon="sitemap" title="Automatic Structure Generation">
+  From wizard answers, Saphira generates:
+  - Root goal using system name and purpose
+  - Strategies addressing specific hazards
+  - Solutions mapping wizard answers
+  - Assumptions from operational context
+  - Evidence requirements from verification strategy
+</Accordion>
+
+</AccordionGroup>
+
+## Traceability and Links
+
+### Wizard Links
+
+Each GSN node includes:
+- **wizard_links**: Question IDs that informed the node
+- **external_links**: External references from answers
+- **requirement_ids**: Linked requirements
+- **hazard_ids**: Related hazards
+- **test_ids**: Associated tests
+
+### Evidence Mapping
+
+<AccordionGroup>
+
+<Accordion icon="link" title="Automatic Evidence Linking">
+  GSN nodes link to:
+  - Test reports from verification
+  - Analysis documents from assessments
+  - Certifications from third parties
+  - Design specifications from requirements
+</Accordion>
+
+<Accordion icon="eye" title="Gap Detection">
+  Saphira identifies:
+  - Goals without sufficient evidence
+  - Strategies without solutions
+  - Missing assumptions
+  - Incomplete argument chains
+</Accordion>
+
+</AccordionGroup>
+
+## Industry Templates
+
+### Automotive Safety Case (ISO 26262)
+
+<AccordionGroup>
+
+<Accordion icon="car" title="Functional Safety Case">
+  Structure aligned with ISO 26262-10:
+  - Item definition goal
+  - HARA completeness argument
+  - Safety concept adequacy
+  - Verification evidence
+  - Confirmation measures
+</Accordion>
+
+</AccordionGroup>
+
+### Industrial Safety Case (IEC 61508)
+
+<AccordionGroup>
+
+<Accordion icon="industry" title="Safety Integrity Case">
+  Structure for SIS justification:
+  - Safety function goals
+  - SIL allocation argument
+  - Architecture adequacy
+  - Validation evidence
+  - Lifecycle compliance
+</Accordion>
+
+</AccordionGroup>
+
+### Autonomous Systems (UL 4600)
+
+<AccordionGroup>
+
+<Accordion icon="robot" title="Autonomous Safety Case">
+  Structure for autonomous systems:
+  - ODD definition completeness
+  - Safety performance targets
+  - Development process adequacy
+  - Verification coverage
+  - Field monitoring plan
+</Accordion>
+
+</AccordionGroup>
+
+## Export Formats
+
+### GSN Diagram Export
+
+- **SVG/PNG**: Visual GSN diagram
+- **Mermaid**: Embeddable diagram code
+- **Draw.io**: Editable diagram format
+
+### Structured Export
+
+- **YAML**: Machine-readable structure
+- **JSON**: API integration format
+- **XML**: Standards-based exchange
+
+### Documentation Export
+
+- **PDF**: Formatted safety case report
+- **Word**: Editable document
+- **HTML**: Web-viewable format
+
+## Validation Features
+
+### Completeness Checking
+
+Saphira validates:
+- All goals have supporting strategies
+- All strategies have evidence or sub-goals
+- No orphan nodes in structure
+- Required assumptions documented
+- Evidence references valid
+
+### Argument Strength Analysis
+
+Assessment of:
+- Evidence quality ratings
+- Assumption validity
+- Traceability completeness
+- Gap severity levels
+
+## Integration with Saphira Workflows
+
+GSN safety cases integrate with:
+
+- **Requirements**: Goals trace to requirements
+- **HARA**: Hazards become evidence for hazard coverage arguments
+- **FMEA**: Failure modes support failure analysis arguments
+- **Tests**: Test results become evidence nodes
+- **Standards**: Clause compliance supports standards arguments
+- **Gap Analysis**: Gaps become undeveloped goals or missing evidence
+
