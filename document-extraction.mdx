@@ -9,21 +9,21 @@ Saphira's **Extract Requirements** feature uses advanced OCR, NLP, and Vision La
 
 ## Getting Started
 
-From the Dashboard, navigate to the **Seek Guidance** section and click **Extract Requirements**.
+From the Home Page, navigate to the **Seek Guidance** section and click **Extract Requirements**, which will lead to this Choose Extraction Method option.
 
-<img src="/images/extract-requirements-card.png" alt="Extract Requirements Card" />
+<img src="/images/extraction-method-modal.png" alt="Choose Extraction Method" />
 
 This opens the extraction method selection dialog where you choose how to extract requirements from your source material.
 
 ## Choose Extraction Method
 
-<img src="/images/extraction-method-modal.png" alt="Choose Extraction Method" />
+<img src="/images/extract-requirements-card.png" alt="Extract Requirements Card" />
 
 Saphira provides two extraction methods optimized for different source materials:
 
 <CardGroup cols={2}>
   <Card title="Extract from Document" icon="file-lines">
-    Upload PDF, Word, or other documents to extract requirements and text content.
+    Upload PDF documents to extract requirements and text content.
     
     Best for:
     - Technical specifications
@@ -44,7 +44,9 @@ Saphira provides two extraction methods optimized for different source materials
 
 ## Extract from Document
 
-Upload text-based documents (PDF, Word, etc.) to extract structured requirements.
+Upload PDF documents to extract structured requirements.
+
+<img src="/images/extract-pdf-requirements-view.png" alt="Extract PDFs" />
 
 ### Supported Document Types
 
@@ -64,23 +66,6 @@ Upload text-based documents (PDF, Word, etc.) to extract structured requirements
   - Hierarchical structure preservation
 </Accordion>
 
-<Accordion icon="file-word" title="Word Documents">
-  Extract from Microsoft Word documents:
-  - Structured requirements with headings
-  - Tables of requirements
-  - Embedded images and diagrams
-  - Track changes and comments preserved
-</Accordion>
-
-<Accordion icon="file-excel" title="Spreadsheets">
-  Extract from Excel/CSV files:
-  - Requirements tables with ID, description, parent
-  - Bill of Materials (BOM) data
-  - Test matrices and traceability tables
-  
-  Automatic column header detection and field mapping.
-</Accordion>
-
 </AccordionGroup>
 
 ### Document Extraction Workflow
@@ -90,7 +75,7 @@ Upload text-based documents (PDF, Word, etc.) to extract structured requirements
     From the extraction method dialog, click **Extract from Document**
   </Step>
   <Step title="Upload Your Document">
-    Drag and drop or browse to select your PDF, Word, or other document file
+    Drag and drop or browse to select your PDF file
   </Step>
   <Step title="AI Extracts Requirements">
     Saphira analyzes the document and extracts:
@@ -99,14 +84,15 @@ Upload text-based documents (PDF, Word, etc.) to extract structured requirements
     - Parent-child relationships
     - Cross-references
   </Step>
-  <Step title="Classify & Validate">
-    Review extracted requirements:
-    - AI suggests requirement classification
-    - INCOSE lint checks quality
-    - Edit inline to refine
+  <Step title="Review Extracted Requirements">
+    Review the extracted requirements:
+    - Requirement IDs and descriptions
+    - Values, units, and logical operators
+    - Parent-child relationships
+    - Cross-references
   </Step>
-  <Step title="Import to Project">
-    Import validated requirements to your project database with full traceability
+  <Step title="Refine & Import">
+    After extraction, use **Write & Check Requirements** to classify, validate, and import to your project database with full traceability
   </Step>
 </Steps>
 
@@ -127,6 +113,8 @@ For each requirement, Saphira extracts:
 ## Extract from Image
 
 Upload visual content like architecture diagrams and screenshots to extract requirements and system structure.
+
+<img src="/images/extract-image-requirements-view.png" alt="Extract PDFs" />
 
 ### Supported Image Types
 
@@ -193,8 +181,8 @@ Upload visual content like architecture diagrams and screenshots to extract requ
     - Requirements derived from visual content
     - Hierarchical relationships
   </Step>
-  <Step title="Import to Project">
-    Import extracted requirements and components to your project
+  <Step title="Refine & Import">
+    After extraction, use **Write & Check Requirements** to classify, validate, and import to your project database with full traceability
   </Step>
 </Steps>
 
@@ -247,7 +235,6 @@ Saphira uses a multi-pass extraction approach to achieve high accuracy:
 |-------------|-----------------|--------------|
 | PDF Requirements | >90% | Hierarchical extraction, ID preservation |
 | Architecture Diagrams | >85% | VLM component detection, relationship mapping |
-| BOMs/Spreadsheets | >95% | Column auto-detection, format normalization |
 | Screenshots | >85% | OCR text extraction, table detection |
 | Schematics | >80% | Part number extraction, symbol recognition |
 
@@ -260,48 +247,6 @@ To get the best extraction results:
 3. **Clear Labels**: Diagrams with readable labels improve component detection
 4. **Review and Edit**: Use the inline editor to refine extracted content
 
-## Post-Extraction Workflow
-
-After extraction, requirements flow through:
-
-```
-Extract → Classify → INCOSE Lint → Suggest Children → Push to RM
-```
-
-<AccordionGroup>
-
-<Accordion icon="tags" title="Classify">
-  AI automatically suggests requirement classification level:
-  - Stakeholder
-  - System
-  - Subsystem
-  - Component
-  - Hardware/Software
-</Accordion>
-
-<Accordion icon="check" title="INCOSE Lint">
-  Quality check against INCOSE requirements engineering principles:
-  - Atomicity (single capability per requirement)
-  - Verifiability (testable with single procedure)
-  - Clarity (no ambiguous terms)
-  - Suggested rewrites for improvement
-</Accordion>
-
-<Accordion icon="sitemap" title="Suggest Children">
-  AI suggests child requirements for decomposition:
-  - Hierarchical breakdown
-  - Component allocation
-  - Traceability maintained
-</Accordion>
-
-<Accordion icon="database" title="Push to RM">
-  Import to project requirements database:
-  - Full traceability to source document
-  - Version control
-  - Change tracking
-</Accordion>
-
-</AccordionGroup>
 
 ## Integration with Safety Workflows
 
@@ -313,11 +258,20 @@ Extracted requirements and components integrate directly with Saphira's safety a
 - **Gap Analysis**: Extracted specifications enable automated standards compliance checking
 - **Safety Case**: Requirements become evidence in GSN safety arguments
 
+## Next Steps After Extraction
+
+After extracting requirements from documents or images, use the **Write & Check Requirements** workflow to:
+
+- Classify requirements at the appropriate level (Stakeholder, System, Subsystem, Component, HW/SW)
+- Validate quality with INCOSE linting
+- Establish traceability links to safety analyses and other requirements
+- Import to your project database with full traceability
+
 ## Related Features
 
 <CardGroup cols={2}>
-  <Card title="Write & Check Requirements" icon="pen-to-square" href="/requirement-refinement">
-    Manually write requirements with AI-assisted quality checking
+  <Card title="Write & Check Requirements" icon="pen-to-square" href="/write-check-requirements">
+    Classify, validate, and refine extracted requirements with AI-assisted quality checking
   </Card>
   <Card title="Import from Jama" icon="cloud-arrow-down" href="/configuration-management">
     Pull requirements from Jama, clean with AI, and sync back

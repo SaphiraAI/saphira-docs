@@ -38,7 +38,7 @@
             "group": "Extraction & Requirements",
             "pages": [
               "document-extraction",
-              "requirement-refinement",
+              "write-check-requirements",
               "configuration-management"
             ]
           },
