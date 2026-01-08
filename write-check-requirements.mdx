@@ -1,0 +1,250 @@
+---
+title: 'Write & Check Requirements'
+description: 'AI-powered requirement refinement workflow: classify, validate, trace, and export requirements with INCOSE compliance.'
+---
+
+## Write & Check Requirements Overview
+
+Saphira's **Write & Check Requirements** feature provides a comprehensive workflow for refining requirements through classification, quality checking, traceability linking, and export. This workflow is used both for manually written requirements and for refining requirements extracted from documents.
+
+## Getting Started
+
+From the Home Page, navigate to the **Seek Guidance** section and click **Write & Check Requirements**, or use this workflow after extracting requirements from documents.
+
+<img src="/images/write-check-requirements-view.png" alt="Write & Check Requirements" />
+
+## Write & Check Workflow
+
+The Write & Check Requirements workflow guides you through a structured process:
+
+```
+Input → Classify → INCOSE Lint → Trace → Conflicts → Export
+```
+
+<Steps>
+  <Step title="Input">
+    Enter your requirement text manually, or import from:
+    - Extracted requirements from documents
+    - CSV files with requirement tables
+    - Jama Connect integration
+    - Manual entry
+  </Step>
+  <Step title="Classify">
+    AI automatically suggests requirement classification level:
+    - Stakeholder
+    - System
+    - Subsystem
+    - Component
+    - Hardware/Software
+    
+    Review the suggested classification and rationale, and adjust if needed.
+  </Step>
+  <Step title="INCOSE Lint">
+    Quality check against INCOSE requirements engineering principles:
+    - **Atomicity**: Single capability per requirement
+    - **Verifiability**: Testable with single procedure
+    - **Clarity**: No ambiguous terms
+    - Suggested rewrites for improvement
+    
+    Review lint results and apply suggested corrections.
+  </Step>
+  <Step title="Trace">
+    AI suggests trace links to:
+    - Related safety analyses (FMEA failure modes, HARA hazards)
+    - Existing requirements at adjacent levels
+    - Test cases and verification activities
+    - Standards clauses
+    
+    Select relevant traces to establish traceability.
+  </Step>
+  <Step title="Conflicts (CSV imports only)">
+    For CSV imports, check for conflicts with existing requirements:
+    - Duplicate requirement detection
+    - Contradictory requirements identification
+    - Overlapping scope warnings
+  </Step>
+  <Step title="Export">
+    Import validated requirements to your project database:
+    - Full traceability to source document
+    - Version control
+    - Change tracking
+    - Integration with Traceability Matrix
+  </Step>
+</Steps>
+
+## Classification
+
+### Automatic Classification
+
+Saphira automatically analyzes requirement text to suggest the appropriate classification level:
+
+<img src="/images/requirements-classification-view.png" alt="Requirements Classification View" />
+
+<AccordionGroup>
+
+<Accordion icon="brain" title="Classification Analysis">
+  The system examines requirement text for:
+  - **User Perspective Terms**: user, operator, driver, passenger, customer
+  - **Technical Terms**: voltage, current, frequency, bandwidth, latency
+  - **System-Level Scope**: system shall, the equipment, overall performance
+  - **Component Terms**: ECU, sensor, actuator, module, controller
+  - **Subsystem Indicators**: interface, communication, integration, connection
+  - **Hardware Terms**: physical, electrical, mechanical, thermal, environmental
+  - **Software Terms**: algorithm, function, code, memory, processing
+</Accordion>
+
+<Accordion icon="lightbulb" title="Dynamic Recommendations">
+  Based on analysis, Saphira provides recommendations:
+  
+  For **Stakeholder Level**:
+  - Add user perspective terms
+  - Remove technical implementation details
+  - Broaden scope to system-level concerns
+  
+  For **System Level**:
+  - Add system-level scope indicators
+  - Remove component-specific details
+  - Add technical terms for specificity
+  
+  For **Component Level**:
+  - Add component-specific terms
+  - Narrow scope to component concerns
+  - Include measurable parameters
+</Accordion>
+
+</AccordionGroup>
+
+## INCOSE Linting
+
+### Quality Checking
+
+Saphira provides automated requirement quality checking against INCOSE best practices:
+
+<img src="/images/INCOSE-Linting-view.png" alt="INCOSE Linting View" />
+
+<AccordionGroup>
+
+<Accordion icon="check" title="INCOSE Principles">
+  Requirements are checked against:
+  - **Atomicity**: One capability per requirement
+  - **Verifiability**: Testable with single procedure
+  - **Clarity**: No ambiguous terms (avoid "appropriate", "adequate")
+  - **Single Safe State**: One safe state per requirement
+  - **Shall Statements**: Active voice with "shall"
+</Accordion>
+
+<Accordion icon="wand-magic-sparkles" title="Suggested Rewrites">
+  When issues are detected:
+  - Specific suggestions for improvement
+  - Before/after comparisons
+  - Rationale for each suggestion
+  - One-click apply to update requirement text
+</Accordion>
+
+</AccordionGroup>
+
+### Requirement Quality Rules
+
+| Principle | Description | Example |
+|-----------|-------------|---------|
+| **Atomicity** | One capability per requirement | ✅ "System shall detect obstacles" |
+| **Verifiability** | Testable with single procedure | ✅ "Response time shall be ≤100ms" |
+| **Clarity** | No ambiguous terms | ❌ Avoid "appropriate", "adequate" |
+| **Single Safe State** | One safe state per requirement | ✅ "System shall enter safe state A" |
+| **Shall Statements** | Active voice with "shall" | ✅ "The system shall provide..." |
+
+## Traceability
+
+### Automatic Trace Suggestions
+
+When creating requirements, Saphira suggests traces to:
+
+- **Safety Analyses**: FMEA failure modes, HARA hazards, TARA assets
+- **Existing Requirements**: Requirements at adjacent levels in the hierarchy
+- **Test Cases**: Verification activities and test procedures
+- **Standards Clauses**: Relevant standards and compliance requirements
+
+<img src="/images/reqs-tracing-view.png" alt="Automatic Trace View" />
+
+### Traceability Matrix Integration
+
+After saving requirements, view them in the Traceability Matrix:
+
+- Parent-child decomposition trees
+- Cross-level traceability
+- Verification coverage analysis
+- Gap identification for missing traces
+
+## Import Sources
+
+### Manual Entry
+
+Type or paste requirement text directly into the input field. Best for:
+- Single requirements
+- Quick requirement entry
+- Requirements from external sources
+
+### CSV Import
+
+Import requirements from CSV files with:
+- Requirement IDs and descriptions
+- Parent-child relationships
+- Classification levels
+- Additional metadata
+
+The workflow includes conflict checking for CSV imports to detect duplicates and contradictions.
+
+### Jama Connect
+
+Import requirements directly from Jama Connect:
+- Automatic synchronization
+- Requirement metadata preservation
+- Traceability link maintenance
+
+### Extracted Requirements
+
+After extracting requirements from PDFs or images, use Write & Check to:
+- Classify extracted requirements
+- Validate quality with INCOSE linting
+- Establish traceability links
+- Import to project database
+
+## Post-Export Workflow
+
+After exporting requirements, you can:
+
+- **View in Traceability Matrix**: See your requirements in the full traceability context
+- **Extract More Requirements**: Continue extracting from additional documents
+- **Run Safety Analysis**: Use requirements for FMEA, HARA, or TARA analysis
+- **Generate V&V Plan**: Create verification and validation plans
+- **Build Safety Case**: Create GSN safety case structures
+
+<img src="/images/extracted-requirements-export-options-view.png" alt="Extracted Requirements Export Options View" />
+
+## Integration with Safety Workflows
+
+Refined requirements integrate directly with Saphira's safety analysis:
+
+- **FMEA**: Requirements become focus elements for failure mode analysis
+- **HARA**: Requirements populate hazard sources and control measures
+- **TARA**: Interface definitions feed cybersecurity asset identification
+- **Gap Analysis**: Extracted specifications enable automated standards compliance checking
+- **Safety Case**: Requirements become evidence in GSN safety arguments
+
+## Related Features
+
+<CardGroup cols={2}>
+  <Card title="Extract Requirements" icon="file-lines" href="/document-extraction">
+    Extract requirements from PDF documents and images using AI
+  </Card>
+  <Card title="Requirement Refinement" icon="sitemap" href="/requirement-refinement">
+    Decompose requirements hierarchically from stakeholder to SW/HW level
+  </Card>
+  <Card title="Import from Jama" icon="cloud-arrow-down" href="/configuration-management">
+    Pull requirements from Jama, clean with AI, and sync back
+  </Card>
+  <Card title="Traceability Matrix" icon="project-diagram" href="/traceability-matrix">
+    View and manage requirement relationships and traceability
+  </Card>
+</CardGroup>
+
