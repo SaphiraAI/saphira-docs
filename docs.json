@@ -55,7 +55,8 @@
             "pages": [
               "verification-validation",
               "test-generation",
-              "clause-mapping-compliance"
+              "clause-mapping-compliance",
+              "gap-analysis-workflow"
             ]
           },
           {
