@@ -1,0 +1,419 @@
+---
+title: 'Gap Analysis Workflow'
+description: 'Complete guide to running gap analysis, viewing results, and generating executive summaries, action items, and requirements documents.'
+---
+
+## Overview
+
+Gap Analysis in Saphira helps you identify compliance gaps between your project documentation and regulatory standards. This workflow guides you through starting a gap analysis job, monitoring its progress, viewing results, and generating actionable insights including Executive Summaries, Action Items (TODOs), and Product Requirements Documents (PRD).
+
+<Info>
+  **Note for Saphira Team Users**: If you're working with the Saphira team to run a job, they may have re-run it under a different name. Please check the "Ongoing Gap Analysis Jobs" section to see all active and completed jobs.
+</Info>
+
+## Starting a Gap Analysis
+
+### Step 1: Select Standards
+
+Before running a gap analysis, you need to select which compliance standards to analyze against.
+
+1. Navigate to the **Gap Analysis** page from your project dashboard
+2. If no standards are selected, you'll see a notification banner prompting you to select standards
+3. Use the **Standards Selection** interface to choose the compliance frameworks that apply to your project
+4. Click **Save** to persist your selection
+
+<AccordionGroup>
+  <Accordion icon="check-circle" title="Standards Selection">
+    The standards selection interface shows:
+    - Available compliance frameworks for your project
+    - Data quality indicators (✅ valid & ready, 🔴 schema issues, ⚠️ metadata only)
+    - Clause counts for each standard
+    - Schema validation status
+    
+    <img src="/images/gap-analysis-standards-selection.png" alt="Standards Selection Interface" />
+    
+    Only standards marked as "✅ valid & ready" can be used for gap analysis. Standards with schema issues may still work but could cause errors during analysis.
+  </Accordion>
+</AccordionGroup>
+
+### Step 2: Configure Analysis
+
+Once standards are selected, you can configure and start a new gap analysis job.
+
+1. Click **"Run Gap Analysis"** or navigate to the **Gap Analysis** tab
+2. Configure your analysis:
+   - **Analysis Name** (optional): Give your analysis a descriptive name
+   - **Analysis Stage**: Choose the focus area:
+     - **All Stages**: Analyze all aspects (design, testing, documentation)
+     - **Design Stage**: Focus on design compliance
+     - **Design - Software/Firmware**: Software and firmware design compliance
+     - **Design - Hardware**: Hardware design compliance
+     - **Test Stage**: Analyze test evidence
+     - **Documentation Stage**: Assess documentation sufficiency
+   - **Select Standards**: Choose which standards to analyze (from your saved selection)
+   - **Select Clauses**: Optionally filter to specific clauses within each standard
+
+<AccordionGroup>
+  <Accordion icon="settings" title="Clause Selection">
+    You can:
+    - Use **"Select All"** to include all clauses from selected standards
+    - Filter by classification (Process, Product, Test, Definition) using the global exclude filter
+    - Manually select specific clauses for each standard
+    - View clause counts and data quality indicators
+    
+    <img src="/images/gap-analysis-clause-selection.png" alt="Clause Selection Interface" />
+  </Accordion>
+</AccordionGroup>
+
+### Step 3: Start the Analysis
+
+1. Review your selected clauses (shown in the button: "X clause(s) selected")
+2. Click **"Start Gap Analysis"**
+3. You'll be redirected to the results page where you can monitor progress
+
+<Warning>
+  Large analyses with many clauses may take significant time to complete. The progress bar shows real-time completion status.
+</Warning>
+
+## Monitoring Analysis Progress
+
+### Progress Indicators
+
+The results page displays several indicators to help you track analysis progress:
+
+<AccordionGroup>
+  <Accordion icon="progress" title="Progress Bar">
+    - **Progress Percentage**: Shows completion percentage (X / Total clauses)
+    - **Real-time Updates**: Progress updates automatically as results come in
+    - **Minimal Progress**: Shows minimal progress indicator when job is running but no results completed yet
+    - **Completion Status**: Indicates when all analysis jobs are complete
+    
+    <img src="/images/gap-analysis-progress-bar.png" alt="Progress Bar" />
+  </Accordion>
+  <Accordion icon="clock" title="Timing Information">
+    The page displays:
+    - **Start Time**: When the analysis began
+    - **End Time**: When the analysis completed (if finished)
+    - **Elapsed Time**: Real-time elapsed duration for running analyses
+    
+    <img src="/images/gap-analysis-timing.png" alt="Timing Information" />
+  </Accordion>
+  <Accordion icon="refresh" title="Refresh and Status">
+    - Click the **Refresh** button to manually update results
+    - The page auto-refreshes every 15 seconds while analysis is in progress
+    - Status indicator shows "Ongoing Gap Analysis Jobs" when active, "Completed Gap Analysis Jobs" when done
+    
+    <img src="/images/gap-analysis-status.png" alt="Status Indicators" />
+  </Accordion>
+</AccordionGroup>
+
+### Viewing Results
+
+Once analysis starts, you can immediately begin viewing results as they come in:
+
+1. **Results Table**: Shows all analyzed clauses with:
+   - Clause number and text
+   - Compliance status (✅ Compliant, ❌ Non-Compliant, Pending)
+   - Framework/Standard name
+   - Assessment remarks with detailed analysis
+   - Action buttons for each clause
+
+2. **Filtering and Search**:
+   - Use the **Quick Filter** search box to search across all columns
+   - Filter by compliance status, framework, or other criteria
+   - Use column filters for advanced filtering
+
+3. **Sorting**: Click column headers to sort by any field
+
+<AccordionGroup>
+  <Accordion icon="table" title="Results Table Features">
+    The results table includes:
+    - **Pinned Columns**: Clause #, Clause, and Status are pinned for easy reference
+    - **Expandable Rows**: Click to expand and see full details
+    - **Inline Editing**: Edit result remarks directly in the table
+    - **Bulk Actions**: Select multiple rows for bulk operations
+    
+    <img src="/images/gap-analysis-results-table.png" alt="Results Table" />
+  </Accordion>
+  <Accordion icon="filter" title="Filtering Options">
+    Filter results by:
+    - Compliance status (Compliant, Non-Compliant, Pending)
+    - Framework/Standard
+    - Test-related clauses
+    - Classification (Process, Product, Test, Definition)
+    - Custom quick filter text search
+    
+    <img src="/images/gap-analysis-filters.png" alt="Filtering Options" />
+  </Accordion>
+</AccordionGroup>
+
+## Generating Insights
+
+Once your analysis has results (even if not complete), you can generate three types of insights:
+
+### Executive Summary
+
+The Executive Summary provides a high-level overview of your compliance status with actionable recommendations.
+
+<AccordionGroup>
+  <Accordion icon="sparkles" title="Generate Executive Summary">
+    1. Expand the **"Executive Summary"** section in the collapsible cards
+    2. Choose a **Focus Mode**:
+       - **All**: Complete analysis across all aspects
+       - **Software/Firmware**: Focus on software and firmware compliance
+       - **Hardware**: Focus on hardware compliance
+    3. Click **"Generate Executive Summary"**
+    4. Wait for generation to complete (typically 30-60 seconds)
+    
+    <img src="/images/gap-analysis-generate-summary.png" alt="Generate Executive Summary" />
+  </Accordion>
+  <Accordion icon="file-text" title="Summary Contents">
+    The Executive Summary includes:
+    - **Overview**: High-level compliance status and key findings
+    - **Statistics**: Total clauses, compliant count, non-compliant count, compliance rate
+    - **Compliant Requirements**: List of requirements that are compliant
+    - **Non-Compliant Requirements**: List of requirements needing attention
+    - **Missing Documents**: Documents that should be created or updated
+    - **Key Findings**: Important insights and recommendations
+    - **Recommendations**: Actionable steps to improve compliance
+    
+    <img src="/images/gap-analysis-summary-content.png" alt="Executive Summary Content" />
+  </Accordion>
+  <Accordion icon="save" title="Save and Regenerate">
+    - Click **"Save"** to persist the summary for future reference
+    - Click **"Regenerate"** to create a new summary (useful after making changes)
+    - The summary is automatically saved when you navigate away
+    
+    <img src="/images/gap-analysis-summary-controls.png" alt="Summary Controls" />
+  </Accordion>
+</AccordionGroup>
+
+### Action Items (TODOs)
+
+Generate actionable TODO items from non-compliant clauses to track remediation work.
+
+<AccordionGroup>
+  <Accordion icon="list-todo" title="Generate TODOs">
+    1. Expand the **"Action Items (TODOs)"** section
+    2. Click **"Generate TODO Items"**
+    3. Wait for generation to complete
+    
+    <img src="/images/gap-analysis-generate-todos.png" alt="Generate TODOs" />
+  </Accordion>
+  <Accordion icon="check-circle" title="TODO Contents">
+    After generation, you'll see:
+    - **New TODOs**: Count of newly created TODO items
+    - **Updated Items**: Count of existing TODOs that were updated
+    - **Priority Breakdown**: Distribution of TODO priorities (High, Medium, Low)
+    - **Link to TODO List**: Direct navigation to view all generated TODOs
+    
+    <img src="/images/gap-analysis-todos-content.png" alt="TODO Contents" />
+  </Accordion>
+  <Accordion icon="external-link" title="View TODOs">
+    - Click **"View in TODO List"** to see all generated TODOs in the main TODO dashboard
+    - TODOs are automatically linked to their source clauses
+    - You can track progress, assign owners, and update status from the TODO list
+    
+    <img src="/images/gap-analysis-todos-link.png" alt="View TODOs Link" />
+  </Accordion>
+</AccordionGroup>
+
+### Product Requirements Document (PRD)
+
+Generate unified requirements suitable for CE Technical Files and other regulatory documentation.
+
+<AccordionGroup>
+  <Accordion icon="file-text" title="Generate PRD">
+    1. Expand the **"Product Requirements Document (PRD)"** section
+    2. Click **"Generate PRD"** (or **"View/Edit PRD"** if one already exists)
+    3. You'll be taken to the PRD editor/viewer
+    
+    <img src="/images/gap-analysis-generate-prd.png" alt="Generate PRD" />
+  </Accordion>
+  <Accordion icon="edit" title="PRD Features">
+    The PRD includes:
+    - Unified requirements from all analyzed standards
+    - Structured format suitable for CE Technical Files
+    - Traceability to source standards and clauses
+    - Export capabilities for regulatory submission
+    
+    <img src="/images/gap-analysis-prd-viewer.png" alt="PRD Viewer" />
+  </Accordion>
+</AccordionGroup>
+
+## Working with Results
+
+### Individual Clause Actions
+
+For each clause in the results table, you can perform several actions:
+
+<AccordionGroup>
+  <Accordion icon="message-square" title="Ask Questions">
+    Click **"Ask"** to open the Gap Resolution Assistant, where you can:
+    - Ask questions about the clause and its compliance status
+    - Get AI-powered recommendations for addressing gaps
+    - Understand requirements in more detail
+    
+    <img src="/images/gap-analysis-ask-button.png" alt="Ask Button" />
+  </Accordion>
+  <Accordion icon="external-link" title="Create JIRA Ticket">
+    For non-compliant clauses, click **"JIRA"** to:
+    - Create a JIRA ticket directly from the gap analysis result
+    - Include all relevant information (clause, requirement, assessment)
+    - Set appropriate priority based on compliance status
+    
+    <img src="/images/gap-analysis-jira-button.png" alt="JIRA Button" />
+  </Accordion>
+  <Accordion icon="list-todo" title="Generate TODO">
+    Click **"TODO"** to generate action items for a specific clause:
+    - Creates focused TODO items for that clause
+    - Links TODO to the clause for traceability
+    - Includes context from the assessment
+    
+    <img src="/images/gap-analysis-todo-button.png" alt="TODO Button" />
+  </Accordion>
+  <Accordion icon="file-text" title="Update Evidence">
+    If the assessment suggests document updates, click **"Update Evidence"** to:
+    - Navigate to the Documents tab
+    - Search for the specific document mentioned
+    - Make necessary updates to address compliance gaps
+    
+    <img src="/images/gap-analysis-update-evidence-button.png" alt="Update Evidence Button" />
+  </Accordion>
+  <Accordion icon="check-circle" title="Resolve Result">
+    Click **"Resolve"** to mark a gap as resolved:
+    - Opens a resolution modal
+    - Record how the gap was addressed
+    - Update compliance status
+    - Add resolution notes
+    
+    <img src="/images/gap-analysis-resolve-button.png" alt="Resolve Button" />
+  </Accordion>
+</AccordionGroup>
+
+### Bulk Operations
+
+You can perform bulk operations on selected rows:
+
+<AccordionGroup>
+  <Accordion icon="plus" title="Bulk JIRA Creation">
+    1. Select multiple rows using checkboxes
+    2. Click **"Bulk JIRA"** button
+    3. Confirm the action
+    4. JIRA tickets will be created for all selected non-compliant clauses
+    
+    <img src="/images/gap-analysis-bulk-jira.png" alt="Bulk JIRA" />
+  </Accordion>
+  <Accordion icon="check-circle" title="Bulk Resolve">
+    1. Select multiple rows
+    2. Click **"Bulk Resolve"** button
+    3. Confirm the action
+    4. All selected results will be marked as resolved
+    
+    <img src="/images/gap-analysis-bulk-resolve.png" alt="Bulk Resolve" />
+  </Accordion>
+</AccordionGroup>
+
+## Exporting Results
+
+### Export Options
+
+You can export your gap analysis results in multiple formats:
+
+<AccordionGroup>
+  <Accordion icon="download" title="Export PDF">
+    1. Click the **"Download/Export"** dropdown
+    2. Select **"Export PDF"**
+    3. A PDF will be generated with all visible results (respects current filters)
+    4. The PDF includes all columns and can be used for reports or documentation
+    
+    <img src="/images/gap-analysis-export-pdf.png" alt="Export PDF" />
+  </Accordion>
+  <Accordion icon="download" title="Export CSV">
+    1. Click the **"Download/Export"** dropdown
+    2. Select **"Export CSV"**
+    3. A CSV file will be downloaded with all visible results
+    4. Useful for further analysis in Excel or other tools
+    
+    <img src="/images/gap-analysis-export-csv.png" alt="Export CSV" />
+  </Accordion>
+  <Accordion icon="download" title="Export TRF (Test Report Form)">
+    For test-related clauses, you can export a Test Report Form:
+    1. Click the **"Download/Export"** dropdown
+    2. Select **"Export TRF"**
+    3. A TRF PDF will be generated for the selected standard
+    4. Includes all test-related clauses with their assessment results
+    
+    <img src="/images/gap-analysis-export-trf.png" alt="Export TRF" />
+  </Accordion>
+</AccordionGroup>
+
+## Compliance Summary View
+
+The Gap Analysis page includes a compliance summary at the top showing statistics by standard:
+
+<AccordionGroup>
+  <Accordion icon="bar-chart" title="Summary Cards">
+    Each standard has a summary card showing:
+    - **Compliance Percentage**: Visual percentage indicator
+    - **Counts**: Compliant / Total clauses
+    - **Color Coding**: Green (100%), Yellow (≥50%), Red (&lt;50%)
+    - **Expandable Details**: Click to see breakdown by status
+    
+    <img src="/images/gap-analysis-summary-cards.png" alt="Summary Cards" />
+  </Accordion>
+  <Accordion icon="chevron-right" title="View Details">
+    Click **"View Details"** on any summary card to:
+    - Filter the results table to show only that standard
+    - See all clauses for that standard
+    - Use the **"Back to All Standards"** button to return to the full view
+    
+    <img src="/images/gap-analysis-view-details.png" alt="View Details" />
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion icon="lightbulb" title="Analysis Configuration">
+    - **Start Small**: Begin with a subset of clauses to understand the process
+    - **Use Analysis Stages**: Focus on specific areas (design, test, documentation) for targeted insights
+    - **Review Standards**: Check data quality indicators before selecting standards
+    - **Save Selections**: Your standard selections are saved for future analyses
+  </Accordion>
+  <Accordion icon="clock" title="Monitoring Progress">
+    - **Check Regularly**: Large analyses can take time; check progress periodically
+    - **Review Partial Results**: You can view and work with results as they come in
+    - **Use Filters**: Filter to non-compliant items to focus on gaps
+    - **Export Early**: Export results periodically as backup
+  </Accordion>
+  <Accordion icon="file-text" title="Generating Insights">
+    - **Generate Summary First**: Get an overview before diving into details
+    - **Review TODOs**: Check generated TODOs to ensure they're actionable
+    - **Update PRD**: Keep PRD updated as you address gaps
+    - **Save Work**: Always save summaries and important notes
+  </Accordion>
+  <Accordion icon="check-circle" title="Resolving Gaps">
+    - **Prioritize**: Focus on high-priority non-compliant clauses first
+    - **Document Resolutions**: Use the resolve feature to track how gaps were addressed
+    - **Link Evidence**: Update documents and link them to resolved clauses
+    - **Re-run Analysis**: After making changes, consider re-running analysis to verify improvements
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="warning" title="Common Issues">
+    - **No Standards Selected**: You must select and save standards before running analysis
+    - **Schema Validation Errors**: Standards with schema issues may cause errors; check data quality indicators
+    - **Missing Results**: Check "Ongoing Gap Analysis Jobs" - the Saphira team may have re-run under a different name
+    - **Slow Generation**: Large analyses take time; be patient and check progress regularly
+  </Accordion>
+  <Accordion icon="refresh" title="Refresh and Retry">
+    - Use the **Refresh** button to update results
+    - If generation fails, try regenerating with a different focus mode
+    - Check browser console for detailed error messages
+    - Contact support if issues persist
+  </Accordion>
+</AccordionGroup>
