@@ -2,6 +2,10 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Saphira",
+  "auth": {
+    "method": "basic",
+    "password": "saphira2025"
+  },
   "colors": {
     "primary": "#6b46c1",
     "light": "#553c9a",
