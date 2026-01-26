@@ -5,132 +5,377 @@ description: 'Perform comprehensive cybersecurity threat analysis and risk asses
 
 ## Cybersecurity Threat Analysis & Risk Assessment (TARA)
 
-Learn how to use Saphira to perform comprehensive cybersecurity threat analysis and risk assessment (TARA) for automotive systems! Saphira implements the complete ISO 21434 cybersecurity workflow, enabling automated threat identification, risk assessment, and security requirement generation.
+Learn how to use Saphira to perform comprehensive cybersecurity threat analysis and risk assessment (TARA) for automotive systems! Saphira implements the complete ISO/SAE 21434:2021 cybersecurity workflow, enabling automated threat identification, risk assessment, and security requirement generation.
 
 ### What is TARA?
 
-TARA (Threat Analysis and Risk Assessment) is a systematic process for identifying and evaluating cybersecurity threats to automotive systems according to ISO 21434. Saphira provides an AI-powered workflow that guides you through the complete cybersecurity engineering process:
+TARA (Threat Analysis and Risk Assessment) is a systematic process for identifying and evaluating cybersecurity threats to automotive systems according to ISO/SAE 21434:2021. Saphira provides an AI-powered workflow that guides you through the complete cybersecurity engineering process following Clause 9 (Concept) and Clause 15 (TARA Methods):
 
-- **Asset Identification**: Identify cybersecurity-critical assets in your system
-- **Threat Analysis**: Discover potential threat scenarios and attack vectors
-- **Risk Assessment**: Evaluate the impact and feasibility of identified threats
-- **Security Goals**: Define cybersecurity goals to mitigate threats
-- **Security Requirements**: Generate detailed technical security requirements
-- **Security Controls**: Specify security controls and countermeasures
+- **Item Definition**: Define your system, interfaces, and operational context
+- **Asset Identification**: Identify cybersecurity-critical assets and their properties
+- **Damage Scenarios**: Determine potential damage if assets are compromised
+- **Threat Scenarios**: Discover threat scenarios and attack vectors using STRIDE
+- **Attack Path Analysis**: Map attack paths from entry points to target assets
+- **Attack Feasibility Rating**: Evaluate attacker capability requirements
+- **Impact Rating**: Assess safety, financial, operational, and privacy impacts
+- **Risk Value Determination**: Calculate risk levels using the ISO 21434 matrix
+- **Risk Treatment Decision**: Decide on risk treatment options (avoid, reduce, share, retain)
+- **Cybersecurity Goals**: Define goals to mitigate identified risks
+- **Cybersecurity Claims**: Document claims supporting your cybersecurity case
+- **Cybersecurity Requirements**: Generate detailed technical security requirements
 
 ## Getting Started with TARA
 
 <AccordionGroup>
-  <Accordion icon="database" title="Define Item and Identify Assets">
-    Start by defining your system (item definition) and identifying cybersecurity assets. Saphira analyzes your system architecture, interfaces, and components to automatically identify:
-    - Hardware components with cybersecurity relevance
-    - Software modules handling sensitive data
-    - Communication interfaces and protocols
-    - Data assets requiring protection (CIA triad: Confidentiality, Integrity, Availability)
-  </Accordion>
-  <Accordion icon="shield-alert" title="Perform Threat Analysis">
-    Saphira automatically generates threat scenarios based on your identified assets using STRIDE methodology and ISO 21434 guidance:
-    - Spoofing attacks
-    - Tampering with data or code
-    - Repudiation threats
-    - Information disclosure
-    - Denial of service
-    - Elevation of privilege
+  <Accordion icon="file-text" title="Define Your Item">
+    Start by defining your system (item definition). This foundational step captures:
+    - System name and primary function
+    - Hardware and software components
+    - Communication interfaces (CAN, Ethernet, USB, wireless, diagnostic)
+    - Operating modes (normal, degraded, maintenance, update)
+    - System boundary definition
     
-    Each threat scenario includes attack vectors, potential impact, and technical details.
+    A comprehensive item definition leads to more complete asset and threat identification.
   </Accordion>
-  <Accordion icon="chart-line" title="Assess Risk Levels">
+  <Accordion icon="database" title="Identify Cybersecurity Assets">
+    Saphira analyzes your item definition to automatically identify cybersecurity assets:
+    - **Data Assets**: Authentication tokens, cryptographic keys, personal data
+    - **Function Assets**: Safety-critical functions, control algorithms
+    - **Hardware Assets**: ECUs, sensors, actuators, communication modules
+    - **Software Assets**: Application software, firmware, bootloaders
+    - **Communication Assets**: Network protocols, message formats, interfaces
+    
+    Each asset is classified by cybersecurity properties (CIA: Confidentiality, Integrity, Availability).
+  </Accordion>
+  <Accordion icon="shield-alert" title="Analyze Threats">
+    Saphira generates comprehensive threat scenarios using STRIDE methodology:
+    - **S**poofing: Identity attacks, credential theft
+    - **T**ampering: Data or code modification
+    - **R**epudiation: Denial of actions
+    - **I**nformation Disclosure: Data leakage, eavesdropping
+    - **D**enial of Service: Resource exhaustion, system disruption
+    - **E**levation of Privilege: Unauthorized access escalation
+    
+    Each threat includes attack vectors, prerequisites, and technical exploitation details.
+  </Accordion>
+  <Accordion icon="chart-line" title="Assess and Treat Risks">
     For each identified threat, Saphira evaluates:
-    - **Impact Rating**: Potential damage to safety, privacy, financial, or operational aspects
+    - **Impact Rating**: Potential damage across safety, privacy, financial, and operational dimensions
     - **Attack Feasibility**: Required expertise, time, equipment, and opportunity
-    - **CAL (Cybersecurity Assurance Level)**: Automatic calculation based on ISO 21434 risk matrix
-    
-    Risk levels guide prioritization of security efforts.
+    - **Risk Value**: Automatic calculation based on ISO 21434 risk matrix
+    - **Risk Treatment**: Recommendations to avoid, reduce, share, or retain risk
   </Accordion>
 </AccordionGroup>
 
-## TARA Workflow Steps
+## ISO 21434 TARA Workflow Steps
 
-Saphira guides you through a systematic cybersecurity analysis workflow:
+Saphira guides you through a systematic 12-step cybersecurity analysis workflow aligned with ISO/SAE 21434:2021:
 
 <AccordionGroup>
 
 <Accordion icon="file-text" title="Step 1: Item Definition">
   Define your system including:
-  - **Function**: Primary function of the system
-  - **System/Item**: Hardware and software components
-  - **Interfaces**: Communication channels (CAN, Ethernet, USB, wireless)
-  - **Operating Modes**: Normal operation, degraded mode, maintenance mode
+  - **System Name**: Name of the item under analysis
+  - **Primary Function**: Core functionality of the system
+  - **Components**: Hardware and software components
+  - **Interfaces**: Communication channels (CAN, Ethernet, USB, wireless, diagnostic ports)
+  - **Operating Modes**: Normal operation, degraded mode, maintenance mode, update mode
   - **System Boundary**: What's included and excluded from analysis
   
-  Saphira supports multiple automotive safety standards:
-  - ISO 26262 (Functional Safety)
-  - ISO 21448 (SOTIF - Safety of the Intended Functionality)
-  - ISO 25119 (Agricultural Machinery)
+  **Standard Reference**: ISO 21434 Clause 9.3, RQ-09-01 through RQ-09-04
 </Accordion>
 
-<Accordion icon="database" title="Step 2: Cybersecurity Assets">
-  Saphira automatically identifies cybersecurity assets from your item definition:
-  - **Hardware Assets**: ECUs, sensors, actuators, communication modules
-  - **Software Assets**: Application software, firmware, bootloaders
-  - **Data Assets**: Authentication tokens, cryptographic keys, personal data
-  - **Communication Assets**: Network protocols, message formats
+<Accordion icon="database" title="Step 2: Asset Identification">
+  Identify cybersecurity assets according to ISO 21434 RQ-09-05:
+  - **Asset Types**: Data, function, hardware, software, communication channel
+  - **Cybersecurity Properties**: Confidentiality, integrity, availability
+  - **Location**: Physical or logical location within the item architecture
+  - **Interfaces**: Access points for each asset
+  - **Rationale**: Why this asset requires cybersecurity protection
   
-  Each asset is classified by:
-  - Asset type and category
-  - Cybersecurity properties (confidentiality, integrity, availability)
-  - Damage scenarios if compromised
+  Each asset includes source justification with document references for traceability.
+  
+  **Standard Reference**: ISO 21434 Clause 9.3, 15.3, RQ-09-05
 </Accordion>
 
-<Accordion icon="shield-alert" title="Step 3: Threat Analysis">
+<Accordion icon="alert-triangle" title="Step 3: Damage Scenarios">
+  Define damage scenarios that could result from asset compromise:
+  - **Safety Damage**: Physical harm to vehicle occupants or road users
+  - **Financial Damage**: Monetary losses to stakeholders
+  - **Operational Damage**: Loss of vehicle functionality or availability
+  - **Privacy Damage**: Exposure of personal or sensitive information
+  
+  Each scenario links to specific assets and quantifies potential impact.
+  
+  **Standard Reference**: ISO 21434 Clause 15.4, RQ-15-01
+</Accordion>
+
+<Accordion icon="shield-alert" title="Step 4: Threat Scenarios">
   AI-powered threat identification generates comprehensive threat scenarios:
-  - **Threat Agents**: External attackers, insiders, automated tools
-  - **Attack Paths**: Entry points and propagation through system
+  - **Threat Agents**: External attackers, malicious insiders, automated tools
   - **Attack Methods**: Injection, reverse engineering, DoS, physical access
+  - **Entry Points**: Network interfaces, diagnostic ports, wireless connections
   - **Prerequisites**: Required knowledge, access, and equipment
+  - **STRIDE Category**: Classification using STRIDE methodology
   
-  Threats are linked to specific assets and include technical details of exploitation.
+  Threats are linked to specific assets and damage scenarios.
+  
+  **Standard Reference**: ISO 21434 Clause 15.5, RQ-15-02
 </Accordion>
 
-<Accordion icon="target" title="Step 4: Cybersecurity Goals">
-  Based on identified threats, Saphira derives cybersecurity goals:
-  - Protect specific assets from identified threats
-  - Maintain confidentiality, integrity, and availability
-  - Ensure secure communication and data handling
-  - Prevent unauthorized access and control
+<Accordion icon="git-branch" title="Step 5: Attack Path Analysis">
+  Map attack paths from entry points to target assets:
+  - **Attack Trees**: Hierarchical breakdown of attack steps
+  - **Entry Points**: Initial access vectors
+  - **Intermediate Steps**: Lateral movement and privilege escalation
+  - **Target Assets**: Final objectives of the attack
+  - **Attack Vectors**: Specific techniques at each step
   
-  Each goal includes:
-  - Target assets and threat scenarios
-  - Required CAL (Cybersecurity Assurance Level)
-  - Verification criteria
+  Visualize attack paths using interactive DAG (Directed Acyclic Graph) view.
+  
+  **Standard Reference**: ISO 21434 Clause 15.6
 </Accordion>
 
-<Accordion icon="cog" title="Step 5: Cybersecurity Requirements">
-  Saphira generates detailed technical requirements to achieve cybersecurity goals:
-  - Authentication and authorization mechanisms
-  - Cryptographic protection requirements
-  - Secure communication protocols
-  - Intrusion detection and logging
-  - Secure boot and code signing
-  - Input validation and sanitization
+<Accordion icon="target" title="Step 6: Attack Feasibility Rating">
+  Assess attack feasibility according to ISO 21434:
+  - **Elapsed Time**: Time required to develop and execute attack
+  - **Specialist Expertise**: Required technical knowledge and skills
+  - **Knowledge of Item**: Understanding of target system needed
+  - **Window of Opportunity**: Access time and conditions required
+  - **Equipment**: Tools and resources required
   
-  Requirements include:
+  Feasibility ratings: Very Low, Low, Medium, High
+  
+  **Standard Reference**: ISO 21434 Clause 15.7, RQ-15-03
+</Accordion>
+
+<Accordion icon="chart-bar" title="Step 7: Impact Rating">
+  Evaluate threat impact across multiple dimensions:
+  
+  **Safety Impact (S0-S3)**:
+  - S0: No impact on safety
+  - S1: Light injuries possible
+  - S2: Severe injuries possible
+  - S3: Life-threatening/fatal injuries possible
+  
+  **Financial Impact (F0-F3)**: Negligible to severe financial loss
+  
+  **Operational Impact (O0-O3)**: No impact to severe operational disruption
+  
+  **Privacy Impact (P0-P3)**: No violation to severe privacy breach
+  
+  **Standard Reference**: ISO 21434 Clause 15.8, RQ-15-04
+</Accordion>
+
+<Accordion icon="calculator" title="Step 8: Risk Value Determination">
+  Calculate risk values using the ISO 21434 risk matrix:
+  
+  **Risk Matrix**: Impact × Feasibility → Risk Value
+  - Risk values range from 1 (lowest) to 5 (highest)
+  - Automatic CAL (Cybersecurity Assurance Level) derivation
+  
+  **CAL Levels**:
+  - **CAL QM**: Quality Management sufficient
+  - **CAL 1**: Low cybersecurity requirements
+  - **CAL 2**: Medium cybersecurity requirements
+  - **CAL 3**: High cybersecurity requirements
+  - **CAL 4**: Very high cybersecurity requirements
+  
+  **Standard Reference**: ISO 21434 Clause 15.9, RQ-15-05
+</Accordion>
+
+<Accordion icon="scale" title="Step 9: Risk Treatment Decision">
+  Decide on risk treatment options for each identified risk:
+  - **Avoid**: Eliminate the risk by removing the threat source
+  - **Reduce**: Implement controls to lower impact or feasibility
+  - **Share**: Transfer risk through insurance or contracts
+  - **Retain**: Accept the risk with documented rationale
+  
+  Each decision includes justification and residual risk assessment.
+  
+  **Standard Reference**: ISO 21434 Clause 15.10, RQ-15-06
+</Accordion>
+
+<Accordion icon="flag" title="Step 10: Cybersecurity Goals">
+  Define cybersecurity goals to address identified risks:
+  - **Goal Statement**: Clear objective for risk mitigation
+  - **Target Assets**: Assets protected by this goal
+  - **Associated Threats**: Threat scenarios addressed
+  - **Required CAL**: Cybersecurity Assurance Level for this goal
+  - **Verification Criteria**: How goal achievement will be verified
+  
+  Goals form the basis for deriving cybersecurity requirements.
+  
+  **Standard Reference**: ISO 21434 Clause 9.4, RQ-09-06
+</Accordion>
+
+<Accordion icon="check-circle" title="Step 11: Cybersecurity Claims">
+  Document claims supporting your cybersecurity case:
+  - **Claim Statement**: Assertion about cybersecurity properties
+  - **Supporting Evidence**: Evidence types required
+  - **Linked Goals**: Cybersecurity goals supported
+  - **Verification Status**: Current verification state
+  
+  Claims provide the argumentative structure for your cybersecurity case.
+  
+  **Standard Reference**: ISO 21434 Clause 9.5
+</Accordion>
+
+<Accordion icon="lock" title="Step 12: Cybersecurity Requirements">
+  Generate detailed technical requirements to achieve cybersecurity goals:
+  - **Authentication**: Identity verification mechanisms
+  - **Authorization**: Access control requirements
+  - **Cryptography**: Encryption and key management
+  - **Secure Communication**: Protocol security requirements
+  - **Intrusion Detection**: Monitoring and alerting
+  - **Secure Boot**: Boot integrity verification
+  - **Input Validation**: Data sanitization requirements
+  
+  Each requirement includes:
   - Specific technical implementation guidance
   - Traceability to goals and threats
   - Verification methods
-  - ASIL/CAL levels
+  - Required CAL level
+  
+  **Standard Reference**: ISO 21434 Clause 9.4, RQ-09-07 through RQ-09-09
 </Accordion>
 
-<Accordion icon="lock" title="Step 6: Cybersecurity Controls">
-  Define specific security controls and countermeasures:
-  - **Preventive Controls**: Firewalls, access control, encryption
-  - **Detective Controls**: Intrusion detection, logging, monitoring
-  - **Corrective Controls**: Incident response, recovery procedures
+</AccordionGroup>
+
+## Customizing Your TARA Workflow
+
+Saphira provides powerful workflow customization through the **Manage Workflow** modal. Access it by clicking the "Manage Workflow" button in the TARA view.
+
+<AccordionGroup>
+
+<Accordion icon="settings" title="Accessing Workflow Management">
+  The Workflow Management modal has three tabs:
   
-  Each control is mapped to requirements and includes:
-  - Implementation details
-  - Effectiveness rating
-  - Verification evidence requirements
+  1. **Outputs**: View and create output section templates
+  2. **Workflow**: Configure which sections appear in your TARA and their order
+  3. **Inputs**: Manage input configurations (coming soon)
+  
+  Changes are saved per-project, allowing different projects to have customized workflows.
+</Accordion>
+
+<Accordion icon="plus" title="Adding Sections to Your Workflow">
+  To add a section to your TARA workflow:
+  
+  1. Go to the **Workflow** tab
+  2. Click **Add Section** button
+  3. Select from available output sections, or click **+ Add new output section** to create a custom one
+  4. The section appears at the bottom of your workflow
+  5. Use the up/down arrows to reorder sections as needed
+</Accordion>
+
+<Accordion icon="trash" title="Removing Sections">
+  To remove a section from your workflow:
+  
+  1. Find the section in the **Workflow** tab
+  2. Click the trash icon next to the section
+  3. The section is removed from your workflow but remains available in the output library
+  
+  Note: Removing a section doesn't delete its definition—you can add it back later.
+</Accordion>
+
+<Accordion icon="arrows-up-down" title="Reordering Sections">
+  To change the order of sections:
+  
+  1. Use the up/down arrow buttons next to each section
+  2. Sections higher in the list are generated first
+  3. Order matters for dependencies—sections can only depend on sections above them
+</Accordion>
+
+<Accordion icon="git-branch" title="Managing Dependencies">
+  Dependencies control the data flow between sections:
+  
+  1. Click **Manage Dependencies** for a section
+  2. Select which upstream sections this section depends on
+  3. During generation, data from dependency sections is passed as context
+  
+  **Best Practices**:
+  - Asset Identification should depend on Item Definition
+  - Threat Scenarios should depend on Assets and Damage Scenarios
+  - Requirements should depend on Goals
+</Accordion>
+
+<Accordion icon="file-text" title="Attaching Reference Documents">
+  Link reference documents to specific sections for grounded generation:
+  
+  1. Click **Manage Documents** for a section
+  2. Select documents from your project's document library
+  3. Optionally configure field-level document mappings
+  4. AI will extract relevant information during generation
+  
+  Documents can be:
+  - System specifications
+  - Architecture diagrams
+  - Previous TARA assessments
+  - Regulatory requirements
+</Accordion>
+
+<Accordion icon="edit" title="Creating Custom Output Sections">
+  Create entirely new output section types:
+  
+  1. Go to the **Outputs** tab
+  2. Click **New output section**
+  3. Define:
+     - **Section Name**: Descriptive name (e.g., "Supply Chain Threats")
+     - **Description**: Purpose of this section
+     - **JSON Schema**: Structure of the output data
+     - **Prompt Body**: Instructions for AI generation
+     - **Example Output**: Sample data for the AI to follow
+  
+  Custom sections can be added to any workflow and shared across projects.
+</Accordion>
+
+<Accordion icon="upload" title="Importing Section Templates">
+  Import section definitions from CSV or Excel:
+  
+  1. Click the **Import** button in the Outputs tab
+  2. Select a CSV or Excel file with column definitions
+  3. Each sheet becomes a separate output section
+  4. Columns define the schema fields
+  
+  **CSV Format**:
+  - First row: Header names
+  - Include columns: name, type, description, required, enum_values
+  - Types: string, number, boolean, array, enum
+</Accordion>
+
+<Accordion icon="download" title="Exporting Workflow Templates">
+  Export your workflow configuration for reuse:
+  
+  1. Click **Export** in the Workflow tab
+  2. Download the JSON configuration file
+  3. Import into other projects using the Import function
+  
+  Templates include:
+  - Section definitions with schemas
+  - Dependency configurations
+  - Document mappings
+</Accordion>
+
+<Accordion icon="layers" title="Using Predefined Workflows">
+  Load a predefined workflow template:
+  
+  1. Click **Load Predefined Workflow** in the Workflow tab
+  2. Select from available templates:
+     - **ISO/SAE 21434 TARA**: Full 12-step ISO 21434 compliant workflow
+     - **HARA**: Functional safety hazard analysis (ISO 26262)
+     - **FMEA**: Failure Mode and Effects Analysis
+  3. The template sections are created and configured automatically
+</Accordion>
+
+<Accordion icon="eye" title="Visualizing Dependencies">
+  View the dependency graph for your workflow:
+  
+  1. Click **View Dependency Graph** in the Workflow tab
+  2. Interactive visualization shows:
+     - All sections as nodes
+     - Dependencies as directed edges
+     - Data flow direction
+  3. Identify circular dependencies or missing links
 </Accordion>
 
 </AccordionGroup>
@@ -146,7 +391,7 @@ Saphira guides you through a systematic cybersecurity analysis workflow:
   - Item Definition → Fault Model → HARA → FSC → Failures → TSC
   
   **Cybersecurity Path (ISO 21434)**:
-  - Item Definition → Assets → Threats → Goals → Requirements → Controls
+  - Item Definition → Assets → Damage Scenarios → Threats → Attack Paths → Risk Assessment → Goals → Requirements
   
   Both workflows share the same item definition and can be executed simultaneously for comprehensive safety and security analysis.
 </Accordion>
@@ -183,7 +428,7 @@ Saphira guides you through a systematic cybersecurity analysis workflow:
 
 <Accordion icon="diagram-project" title="Traceability Visualization">
   Visualize relationships across your cybersecurity analysis:
-  - Asset → Threat → Goal → Requirement → Control traceability
+  - Asset → Threat → Goal → Requirement traceability
   - Interactive graph view with filtering
   - Identify coverage gaps and missing links
   - Ensure complete traceability for audits
@@ -191,77 +436,14 @@ Saphira guides you through a systematic cybersecurity analysis workflow:
   Automatically generated traceability matrix for compliance documentation.
 </Accordion>
 
-<Accordion icon="settings" title="Customizable Workflows">
-  Adapt the TARA workflow to your organization's needs:
-  - Add custom workflow steps
-  - Configure default threat categories
-  - Define organization-specific security requirements
-  - Create templates for common system types
+<Accordion icon="brain" title="Attack Path DAG Visualization">
+  Visualize attack paths as a Directed Acyclic Graph:
+  - Entry points shown as root nodes
+  - Attack steps as intermediate nodes
+  - Target assets as leaf nodes
+  - Interactive exploration of attack chains
   
-  Use Workflow Management to save and reuse configurations.
-</Accordion>
-
-</AccordionGroup>
-
-## Risk Assessment and CAL Determination
-
-<AccordionGroup>
-
-<Accordion icon="chart-line" title="Impact Rating">
-  Saphira evaluates threat impact across multiple dimensions:
-  
-  **Safety Impact**: 
-  - S0: No impact on safety
-  - S1: Light injuries
-  - S2: Severe injuries
-  - S3: Life-threatening/fatal injuries
-  
-  **Financial Impact**:
-  - F0: Negligible
-  - F1: Moderate financial loss
-  - F2: Significant financial loss
-  - F3: Severe financial loss
-  
-  **Operational Impact**:
-  - O0: No operational impact
-  - O1: Limited operational impact
-  - O2: Significant operational impact
-  - O3: Severe operational impact
-  
-  **Privacy Impact**:
-  - P0: No privacy violation
-  - P1: Minor privacy violation
-  - P2: Significant privacy violation
-  - P3: Severe privacy violation
-</Accordion>
-
-<Accordion icon="lock-keyhole" title="Attack Feasibility Analysis">
-  Assess how feasible each attack is according to ISO 21434:
-  
-  **Elapsed Time**: Time required to develop and execute attack
-  **Specialist Expertise**: Required technical knowledge and skills
-  **Knowledge of Item**: Understanding of target system needed
-  **Window of Opportunity**: Access time and conditions
-  **Equipment**: Tools and resources required
-  
-  Feasibility ratings:
-  - **Very Low**: Highly skilled experts with extensive resources
-  - **Low**: Skilled attackers with significant resources
-  - **Medium**: Proficient attackers with moderate resources
-  - **High**: Easily achievable with common tools
-</Accordion>
-
-<Accordion icon="shield-check" title="CAL Calculation">
-  Cybersecurity Assurance Level (CAL) is automatically calculated:
-  
-  **Risk Matrix**: Impact × Feasibility → CAL
-  - **CAL QM**: Quality Management sufficient
-  - **CAL 1**: Low cybersecurity requirements
-  - **CAL 2**: Medium cybersecurity requirements
-  - **CAL 3**: High cybersecurity requirements
-  - **CAL 4**: Very high cybersecurity requirements
-  
-  CAL determines the rigor of security measures and verification activities.
+  Helps identify critical paths and defense-in-depth opportunities.
 </Accordion>
 
 </AccordionGroup>
@@ -272,10 +454,11 @@ Saphira guides you through a systematic cybersecurity analysis workflow:
 
 <Accordion icon="file-text" title="TARA Reports">
   Generate comprehensive cybersecurity documentation:
-  - Complete TARA report with all threats and controls
+  - Complete TARA report with all 12 workflow sections
   - Asset inventory and classification
-  - Risk assessment matrix
-  - Traceability matrix (Asset → Threat → Goal → Requirement → Control)
+  - Threat scenario catalog
+  - Risk assessment matrix with CAL assignments
+  - Traceability matrix (Asset → Threat → Goal → Requirement)
   - Residual risk analysis
   
   Export formats: PDF, Excel, CSV, JSON
@@ -352,11 +535,21 @@ Saphira guides you through a systematic cybersecurity analysis workflow:
   Ensure your TARA is complete:
   - Verify all interfaces have associated threat scenarios
   - Check that all high-value assets are protected
-  - Ensure each threat has mitigating controls
+  - Ensure each threat has mitigating goals and requirements
   - Review traceability for gaps
   - Document residual risks and acceptance rationale
   
   Use Saphira's traceability visualization to identify gaps.
+</Accordion>
+
+<Accordion icon="settings" title="Customize for Your Organization">
+  Adapt the TARA workflow to your needs:
+  - Add custom sections for organization-specific requirements
+  - Configure default threat categories
+  - Define organization-specific security requirements templates
+  - Save and reuse workflow configurations across projects
+  
+  Use Workflow Management to save and apply configurations.
 </Accordion>
 
 </AccordionGroup>
@@ -417,4 +610,3 @@ After completing your TARA:
 4. **Ongoing Monitoring**: Update TARA as system evolves and new threats emerge
 
 Saphira maintains version history and traceability throughout the development lifecycle, ensuring your cybersecurity analysis stays current and compliant.
-
