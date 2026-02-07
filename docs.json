@@ -47,6 +47,7 @@
             "pages": [
               "threat-analysis-risk-assessment",
               "fmea-analysis",
+              "hazop-hazid-hara-workflow",
               "components"
             ]
           },
