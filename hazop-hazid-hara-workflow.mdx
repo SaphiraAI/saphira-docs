@@ -1,0 +1,117 @@
+---
+title: 'HAZOP, HAZID, HARA & LOPA Workflows'
+description: 'Run process and machinery safety analyses: HAZOP (IEC 61882), LOPA, HAZID, and HARA with shared Item Definition and AI-powered generation.'
+---
+
+## Overview
+
+Saphira supports **process and machinery safety workflows** that share a common **Item Definition** and then branch into different analysis types:
+
+- **HAZOP** (Hazard and Operability Study, IEC 61882): deviations from design intent → **LOPA** (Layers of Protection Analysis) → Safety Mechanisms  
+- **HAZID** (Hazard Identification): early hazard identification driven by system/components and Item Definition  
+- **HARA** (Hazard Analysis and Risk Assessment): machinery safety per ISO 12100 / ISO 13849 / IEC 62061 — operating modes, hazards, risk assessment, safety functions, and verification  
+
+All of these use the same **modular workflow** UI: you choose the workflow type (HAZOP, HAZID, HARA, or others), complete **Item Definition** first, then run each step with AI-assisted generation. Data flows between steps (e.g. HAZOP deviations into LOPA, LOPA into Safety Mechanisms).
+
+## Where to Find These Workflows
+
+1. Open a **project** and go to the **dashboard** (or the workflow area your org uses for safety analysis).
+2. Create or select a **component/item** to analyze (e.g. a process, machine, or system).
+3. Choose the **workflow type**: **HAZOP**, **HAZID**, or **HARA** (and optionally **STPA**).
+4. The workflow view shows the **sections** for that type (e.g. Item Definition → HAZOP Deviations → LOPA → Safety Mechanisms for HAZOP).
+
+If no workflow config exists yet, Saphira can apply a **predefined template** for that type so standard sections appear (e.g. “HAZOP template applied. Standard sections are now available.”).
+
+## Item Definition (Shared First Step)
+
+Every HAZOP, HAZID, and HARA workflow starts with **Item Definition**. This is the system/process under analysis. Fill it in **before** generating downstream sections so the AI has the right context.
+
+<AccordionGroup>
+  <Accordion icon="file-text" title="What to enter in Item Definition">
+    - **System / process name**: e.g. “Gantry glue dispensing process”, “Cooling pump system”
+    - **Function**: What the system or process is supposed to do
+    - **Interfaces**: Inputs, outputs, and boundaries
+    - **Operating modes**: Normal, setup, maintenance, etc.
+    - **Environment, tasks, variability**: Where it runs, what it does, and what can change
+    
+    For **HAZOP**, the UI is process-oriented (process elements, process boundary, design intent). You can also **derive a process from a component** (e.g. “Glue Dispensing Machine” → “Glue Dispensing process”) from the Item Definition modal.
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  **Important**: When you click **Generate** on a section that depends on Item Definition (e.g. HAZOP Deviations), Saphira sends the current Item Definition to the backend so the model generates content for *your* system or process. If you see generic or off-topic results (e.g. automotive when you defined a process), ensure Item Definition is filled and that you generated *after* saving it.
+</Info>
+
+## HAZOP Workflow (IEC 61882)
+
+HAZOP follows IEC 61882: identify **deviations** from design intent, then analyze causes, consequences, and safeguards. In Saphira the flow is:
+
+1. **Item Definition** (process/system under study)  
+2. **HAZOP Deviations** — guide words (No, More, Less, As well as, Part of, Reverse, Other than), cause, consequence, safeguards, recommendations  
+3. **LOPA (Layers of Protection)** — for each deviation: initiating event, consequence, existing IPLs, conditional modifiers, LOPA computation, risk decision (Accept / Add IPL / Upgrade IPL), design/action requirements, event-tree-style summary  
+4. **Safety Mechanisms** — safety functions / IPLs from LOPA (e.g. required RRF, SIL/PL, design action requirement, LOPA scenario references)
+
+### HAZOP Deviations
+
+- Use standard HAZOP guide words where applicable.
+- Each deviation has: ID, deviation description, cause, consequence, existing safeguards, recommendations, operating mode.
+- Generate this step **after** Item Definition is complete so results match your process (e.g. glue dispensing, not generic automotive).
+
+### LOPA (Layers of Protection Analysis)
+
+- Each scenario is tied to a HAZOP deviation (initiating event source).
+- For each scenario you get: **scenario summary**, **initiating event** (cause + frequency), **consequence** (outcome + severity), **existing IPLs** (each Independent, Auditable, Effective; categories such as alarm_operator_action, safety_instrumented_function), **conditional modifiers**, **LOPA computation** (e.g. IE frequency × modifiers ÷ product of IPL RRF = mitigated frequency), **risk decision** (accept_as_is, add_ipl, upgrade_ipl), **design_action_requirements**, and **event_tree_summary**.
+- The LOPA summary card in the UI shows scenario summary, risk decision, and design/action requirements; the full table is editable.
+
+### Safety Mechanisms
+
+- Derived from LOPA: link to deviation(s) and LOPA scenario(s), design/action requirement from LOPA, required RRF, required SIL/PL, verification method.
+- Traceability: each mechanism can reference HAZOP deviation IDs and LOPA scenario IDs.
+
+## HAZID Workflow (Hazard Identification)
+
+HAZID focuses on **early hazard identification** for the system or process. In Saphira:
+
+- You select **HAZID** as the workflow type and use the same **Item Definition** (system name, description, components, interfaces, operating modes, etc.).
+- You can populate Item Definition by **selecting components** (e.g. from a component list) so the system under analysis is clearly defined.
+- The workflow then guides you through hazard identification steps driven by that Item Definition.
+
+Sections and generation depend on the workflow config applied to the project (e.g. from a predefined HAZID template if available).
+
+## HARA Workflow (Hazard Analysis and Risk Assessment)
+
+HARA in Saphira targets **machinery safety** (ISO 12100, ISO 13849, IEC 62061). The predefined sequence is:
+
+1. **Item Definition** — machinery/equipment under analysis  
+2. **Operating Modes** — normal, setup, maintenance, cleaning, emergency, teaching/programming; human involvement and safety measures per mode  
+3. **Hazard Identification** — potential hazards from Item Definition and operating modes (ISO 12100)  
+4. **Risk Assessment** — evaluate risk for each hazard  
+5. **Safety Functions** — safety functions to achieve required risk reduction  
+6. **Control Measures** — how controls implement those functions  
+7. **Safety Devices** — devices (e.g. guards, interlocks)  
+8. **Verification Tests** — tests for safety functions, control measures, and safety devices  
+
+Each step is generated from the previous; Item Definition and Operating Modes are the foundation.
+
+## Running a Step and Saving
+
+- **Generate**: For each section (e.g. HAZOP Deviations, LOPA, Safety Mechanisms), click **Generate** to run AI-assisted generation. The backend uses the section’s schema and prompt; for steps that depend on Item Definition, the current Item Definition is sent so the model has the right context.
+- **Edit**: You can edit generated tables/cards (e.g. add rows, change text).
+- **Save**: Save the component TARA instance to persist all sections (Item Definition, HAZOP, LOPA, Safety Mechanisms, or HARA steps). The merged data is stored so you can resume or regenerate later.
+
+## Integration with Other Saphira Features
+
+- **Safety case / GSN**: HARA hazards and control measures, HAZOP deviations, and LOPA/Safety Mechanisms can feed into safety case arguments and evidence.
+- **Requirements**: Safety mechanisms and design/action requirements can be linked to requirements and verification.
+- **FMEA**: Failure modes can be linked to HARA hazards or HAZOP deviations where relevant.
+
+## Summary
+
+| Workflow | Purpose | Main steps (after Item Definition) |
+|----------|---------|------------------------------------|
+| **HAZOP** | Deviations from design intent (IEC 61882) | HAZOP Deviations → LOPA → Safety Mechanisms |
+| **LOPA** | Part of HAZOP in Saphira | Initiating event, consequence, IPLs, risk decision, design/action requirements |
+| **HAZID** | Early hazard identification | Item Definition–driven hazard identification sections |
+| **HARA** | Machinery safety (ISO 12100 / 13849 / 62061) | Operating Modes → Hazard Identification → Risk Assessment → Safety Functions → Control Measures → Safety Devices → Verification Tests |
+
+All workflows use the same **Item Definition** and **modular workflow** UI; choose the workflow type and complete Item Definition first, then generate and edit each section as needed.
